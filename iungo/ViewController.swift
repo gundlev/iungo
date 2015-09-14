@@ -12,6 +12,7 @@ import Firebase
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    //some change
     //let userid = "003"
     var meetings: [Meeting] = [Meeting]()
     var groups: [String] = [""]
