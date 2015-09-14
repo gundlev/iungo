@@ -38,17 +38,17 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             switch i {
             case 0:
                 let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditUserCell
-                if user?.name != cell.name.text {
+                if user?.name != cell.name.text && cell.name.text != "Ikke angivet" {
                     print("name was changed")
                     ref.childByAppendingPath("name").setValue(cell.name.text!)
                     userDefaults.setObject(cell.name.text, forKey: "name")
                 }
-                if user?.company != cell.company.text {
+                if user?.company != cell.company.text && cell.company.text != "Ikke angivet" {
                     print("company was changed")
                     ref.childByAppendingPath("company").setValue(cell.company.text)
                     userDefaults.setObject(cell.company.text, forKey: "company")
                 }
-                if user?.userTitle != cell.title.text {
+                if user?.userTitle != cell.title.text && cell.title.text != "Ikke angivet" {
                     print("title was changed")
                     ref.childByAppendingPath("title").setValue(cell.title.text)
                     userDefaults.setObject(cell.title.text, forKey: "title")
@@ -64,37 +64,37 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 }
             case 1:
                 let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditContactCell
-                if user?.mobilNo != cell.mobilNo.text! {
+                if user?.mobilNo != cell.mobilNo.text! && cell.mobilNo.text != "Ikke angivet" {
                     print("mobilNo was changed")
                     ref.childByAppendingPath("mobilNo").setValue(cell.mobilNo.text!)
                     userDefaults.setObject(cell.mobilNo.text, forKey: "mobilNo")
                 }
-                if user?.phoneNo != cell.phoneNo.text! {
+                if user?.phoneNo != cell.phoneNo.text! && cell.phoneNo.text != "Ikke angivet" {
                     print("phoneNo was changed")
                     ref.childByAppendingPath("phoneNo").setValue(cell.phoneNo.text!)
                     userDefaults.setObject(cell.phoneNo.text, forKey: "phoneNo")
                 }
-                if user?.email != cell.email.text! {
+                if user?.email != cell.email.text! && cell.email.text != "Ikke angivet" {
                     print("email was changed")
                     ref.childByAppendingPath("email").setValue(cell.email.text!)
                     userDefaults.setObject(cell.email.text, forKey: "email")
                     emailHasBeenChanged = true
                 }
-                if user?.website != cell.website.text! {
+                if user?.website != cell.website.text! && cell.website.text != "Ikke angivet" {
                     print("website was changed")
                     ref.childByAppendingPath("website").setValue(cell.website.text!)
                     userDefaults.setObject(cell.website.text, forKey: "website")
                 }
             case 2:
                 let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditAddressCell
-                if user?.address != cell.address.text! {
+                if user?.address != cell.address.text! && cell.address.text != "Ikke angivet" {
                     print("address was changed")
                     ref.childByAppendingPath("address").setValue(cell.address.text!)
                     userDefaults.setObject(cell.address.text, forKey: "address")
                 }
             case 3:
                 let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditDescriptionCell
-                if user?.userDescription != cell.userDescription.text! {
+                if user?.userDescription != cell.userDescription.text! && cell.userDescription.text != "Ikke angivet" {
                     print("description was changed")
                     ref.childByAppendingPath("description").setValue(cell.userDescription.text!)
                     userDefaults.setObject(cell.userDescription.text, forKey: "description")
@@ -109,11 +109,19 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 //            print(json["picture"].stringValue)
 //        })
         
-//        if emailHasBeenChanged {
-//            let emailAlert = UIAlertController(title: "Du har ændret din offentlige email", message: "Det ændre ikke på dine login oplysninger!", preferredStyle: .Alert)
-//            emailAlert.addAction(UIAlertAction(title: "Forstået!", style: UIAlertActionStyle.Cancel, handler: nil))
-//            self.presentViewController(emailAlert, animated: true, completion: nil)
-//        }
+        if emailHasBeenChanged {
+            let emailAlert = UIAlertController(title: "Du har ændret din offentlige email", message: "Det ændre ikke på dine login oplysninger!", preferredStyle: .Alert)
+            emailAlert.addAction(UIAlertAction(title: "Forstået!", style: UIAlertActionStyle.Cancel, handler: nil))
+            self.presentViewController(emailAlert, animated: true, completion: {
+                self.goon()
+            })
+        } else {
+            performSegueWithIdentifier("finishEditingProfile", sender: self)
+        }
+        
+    }
+    
+    func goon() {
         performSegueWithIdentifier("finishEditingProfile", sender: self)
     }
     
@@ -230,13 +238,16 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             top.profileImage.image = user!.profileImage
             top.name.text = user!.name
             if user!.company == "" {
-                top.company.text = "Ikke angivet"
+                top.company.placeholder = "Firma"
+//                top.company.text = "Ikke angivet"
+                //top.company.alpha = 0.5
             } else {
                 top.company.text = user!.company
             }
             
             if user!.userTitle == "" {
                 top.title.text = "Ikke angivet"
+                top.title.alpha = 0.5
             } else {
                 top.title.text = user!.userTitle
             }
@@ -284,12 +295,18 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             } else {
                 address.address.text = user!.address
             }
-            address.address.text = user!.address
             return address
 
         default:
             description = tableView.dequeueReusableCellWithIdentifier("profileEditDescriptionCell") as! ProfileEditDescriptionCell
-            description.userDescription.text = user!.userDescription
+            if user!.userDescription == "" {
+                description.userDescription.alpha = 0.5
+                description.userDescription.text = "Ikke angivet"
+            } else {
+                description.userDescription.text = user!.userDescription
+            }
+
+
             return description
 
         }

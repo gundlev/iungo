@@ -155,9 +155,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, M
         let imageString = userDefaults.stringForKey("picture")!
         
         if imageString != "" {
-            print("get this far")
             profileImage = UIImage(data: NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))!)
-            print("Get this far too")
         }
         
         self.user = User(uname: userDefaults.stringForKey("name")!, ucompany: userDefaults.stringForKey("company")!, uuserId: userDefaults.stringForKey("uid")!, uuserTitle: userDefaults.stringForKey("title")!, uaddress: userDefaults.stringForKey("address")!, uphoneNo: userDefaults.stringForKey("phoneNo")!, umobilNo: userDefaults.stringForKey("mobilNo")!, uemail: userDefaults.stringForKey("email")!, uwebsite: userDefaults.stringForKey("website")!, UImage: profileImage!, uuserDescription: userDefaults.stringForKey("description")!, ustatus: "0")
@@ -253,7 +251,6 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, M
             } else {
                 address.address.text = user.address
             }
-            address.address.text = user.address
             return address
         default:
             description = tableView.dequeueReusableCellWithIdentifier("profileDescriptionCell") as! ProfileDescriptionCell

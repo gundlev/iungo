@@ -25,17 +25,17 @@ class Meeting: NSObject, Comparable {
     var name: String
     var numberOfParticipating: Int
     
-    init(oid: String, ogroupId: String, otitle: String, otext: String, odate: String, otime:String, oaddress: String, oname: String, onumber: Int) {
-        self.id = oid
-        self.groupId = ogroupId
-        self.meetingTitle = otitle
-        self.meetingText = otext
-        self.date = odate
-        self.time = otime
-        self.address = oaddress
-        self.name = oname
-        self.numberOfParticipating = onumber
-    }
+//    init(oid: String, ogroupId: String, otitle: String, otext: String, odate: String, otime:String, oaddress: String, oname: String, onumber: Int) {
+//        self.id = oid
+//        self.groupId = ogroupId
+//        self.meetingTitle = otitle
+//        self.meetingText = otext
+//        self.date = odate
+//        self.time = otime
+//        self.address = oaddress
+//        self.name = oname
+//        self.numberOfParticipating = onumber
+//    }
     
     init(oid: String, ogroupId: String, otitle: String, otext: String, ostart: Int, oend:Int, oaddress: String, oname: String, onumber: Int) {
         self.id = oid
@@ -65,7 +65,7 @@ class Meeting: NSObject, Comparable {
             }
         }
         
-        var meeting = Meeting(oid: mid, ogroupId: groupId, otitle: json["title"].stringValue, otext: json["text"].stringValue, odate: json["date"].stringValue, otime: json["time"].stringValue, oaddress: json["address"].stringValue, oname: network, onumber: numberOfParticipating)
+        let meeting = Meeting(oid: mid, ogroupId: groupId, otitle: json["title"].stringValue, otext: json["text"].stringValue, ostart: json["startTimestamp"].intValue, oend: json["endTimestamp"].intValue, oaddress: json["address"].stringValue, oname: network, onumber: numberOfParticipating)
         
         return meeting
         
@@ -73,9 +73,9 @@ class Meeting: NSObject, Comparable {
 }
 
 func <(lhs: Meeting, rhs: Meeting) -> Bool {
-    return lhs.date < rhs.date
+    return lhs.startTimestamp! < rhs.startTimestamp!
 }
 
 func ==(lhs: Meeting, rhs: Meeting) -> Bool {
-    return lhs.date == rhs.date
+    return lhs.startTimestamp! == rhs.startTimestamp!
 }

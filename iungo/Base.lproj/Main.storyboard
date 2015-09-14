@@ -29,15 +29,15 @@
                     </view>
                     <connections>
                         <segue destination="KyF-mc-CO7" kind="custom" identifier="sw_rear" customClass="SWRevealViewControllerSegueSetController" id="J38-ZS-gGu"/>
-                        <segue destination="mE6-il-tFL" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="xEH-AR-9kw"/>
+                        <segue destination="mE6-il-tFL" kind="custom" identifier="" customClass="SWRevealViewControllerSegueSetController" id="xEH-AR-9kw"/>
                         <segue destination="4v8-Z0-WvM" kind="custom" customClass="SWRevealViewControllerSegueSetController" id="TVM-gi-wbF"/>
                         <segue destination="S7f-EF-cbr" kind="custom" customClass="SWRevealViewControllerSegueSetController" id="WxG-oX-1mZ"/>
-                        <segue destination="0md-TL-WvT" kind="custom" customClass="SWRevealViewControllerSegueSetController" id="gZe-YC-ugM"/>
+                        <segue destination="0md-TL-WvT" kind="custom" identifier="sw_front" customClass="SWRevealViewControllerSegueSetController" id="gZe-YC-ugM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mnw-OH-bmz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-231" y="258"/>
+            <point key="canvasLocation" x="-327" y="258"/>
         </scene>
         <!--Mine Møder-->
         <scene sceneID="tne-QT-ifu">
@@ -442,7 +442,7 @@
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="efi-dB-eZw">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="241.5"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDZ-Wc-MnZ">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iDZ-Wc-MnZ">
                                                             <rect key="frame" x="2" y="6" width="584" height="223"/>
                                                             <color key="backgroundColor" red="0.1960784314" green="0.52941176469999995" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                                             <inset key="scrollIndicatorInsets" minX="0.0" minY="-5" maxX="0.0" maxY="0.0"/>
@@ -513,7 +513,7 @@
         <!--Navigation Controller-->
         <scene sceneID="fat-kq-Dcr">
             <objects>
-                <navigationController id="4v8-Z0-WvM" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="profileNav" id="4v8-Z0-WvM" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="7QW-yT-R4u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -722,7 +722,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="184.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLz-TQ-RBc">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLz-TQ-RBc">
                                                     <rect key="frame" x="11" y="5" width="566" height="157.5"/>
                                                     <color key="backgroundColor" red="0.1960784314" green="0.52941176469999995" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -830,7 +830,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVF-kC-zbP" customClass="MyTableView" customModule="iungo" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="aVF-kC-zbP" customClass="MyTableView" customModule="iungo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="600" height="492"/>
                                 <color key="backgroundColor" red="0.1960784314" green="0.52941176469999995" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="separatorInset" minX="68" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1059,7 +1059,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="88b-aO-Ssv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615" y="-1088"/>
+            <point key="canvasLocation" x="1151" y="-456"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2VK-dG-col">
@@ -1075,7 +1075,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cIb-qR-fT4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440" y="-1156"/>
+            <point key="canvasLocation" x="440" y="-456"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="JfT-Q1-UF4">
@@ -1223,7 +1223,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GFw-zr-6rz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="440" y="-437"/>
+            <point key="canvasLocation" x="440" y="-1177"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="M20-0I-wlE">
@@ -1294,7 +1294,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dep-El-M0Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1151" y="-437"/>
+            <point key="canvasLocation" x="1151" y="-1177"/>
         </scene>
         <!--Netværksgrupper-->
         <scene sceneID="dX4-vn-tig">
@@ -1647,7 +1647,7 @@
                                                 <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ttE-xr-1WS">
                                                     <rect key="frame" x="8" y="0.0" width="584" height="241.5"/>
                                                     <subviews>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdU-tP-Yoa">
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HdU-tP-Yoa">
                                                             <rect key="frame" x="2" y="6" width="584" height="223"/>
                                                             <color key="backgroundColor" red="0.1960784314" green="0.52941176469999995" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                                             <inset key="scrollIndicatorInsets" minX="0.0" minY="-5" maxX="0.0" maxY="0.0"/>
@@ -1748,19 +1748,19 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Company" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mCc-ux-u9K">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Firma" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mCc-ux-u9K" customClass="B68UIFloatLabelTextField" customModule="iungo" customModuleProvider="target">
                                                             <rect key="frame" x="7" y="216" width="270" height="30"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVx-Rc-EZC">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Titel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NVx-Rc-EZC" customClass="B68UIFloatLabelTextField" customModule="iungo" customModuleProvider="target">
                                                             <rect key="frame" x="7" y="189" width="270" height="30"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
-                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gra-zK-dAl">
+                                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Navn" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gra-zK-dAl" customClass="B68UIFloatLabelTextField" customModule="iungo" customModuleProvider="target">
                                                             <rect key="frame" x="7" y="160" width="270" height="30"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
@@ -1985,14 +1985,14 @@
         <image name="phone" width="77" height="87"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="4Hu-TN-8Rr"/>
+        <segue reference="gZe-YC-ugM"/>
         <segue reference="VDZ-tL-7al"/>
         <segue reference="p6J-Xu-KAN"/>
-        <segue reference="N5v-Ur-3Mu"/>
-        <segue reference="h7o-oy-SsR"/>
-        <segue reference="HC5-qb-1dL"/>
-        <segue reference="WdO-52-slx"/>
-        <segue reference="yTF-dk-BFv"/>
-        <segue reference="n3e-zZ-dbP"/>
-        <segue reference="L5S-H6-nzt"/>
+        <segue reference="TVM-gi-wbF"/>
+        <segue reference="xEH-AR-9kw"/>
+        <segue reference="WxG-oX-1mZ"/>
+        <segue reference="uCP-WA-sfx"/>
+        <segue reference="1HO-Yp-CYq"/>
     </inferredMetricsTieBreakers>
 </document>

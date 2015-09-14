@@ -16,6 +16,7 @@
 		85059C261B9873D6001F9F15 /* WallVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85059C251B9873D6001F9F15 /* WallVC.swift */; };
 		85059C2C1B9C924A001F9F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85059C2B1B9C924A001F9F15 /* Assets.xcassets */; };
 		85083F0F1B7A5CF8000497F2 /* NetworkGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85083F0E1B7A5CF8000497F2 /* NetworkGroupVC.swift */; };
+		8520C8461BA756D3008471EB /* B68UIFloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8520C8451BA756D3008471EB /* B68UIFloatLabelTextField.swift */; settings = {ASSET_TAGS = (); }; };
 		85225FF11B5A711C001E7BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85225FF01B5A711C001E7BED /* AppDelegate.swift */; };
 		85225FF31B5A711C001E7BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85225FF21B5A711C001E7BED /* ViewController.swift */; };
 		85225FF61B5A711C001E7BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85225FF41B5A711C001E7BED /* Main.storyboard */; };
@@ -109,6 +110,7 @@
 		85059C251B9873D6001F9F15 /* WallVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallVC.swift; sourceTree = "<group>"; };
 		85059C2B1B9C924A001F9F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85083F0E1B7A5CF8000497F2 /* NetworkGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkGroupVC.swift; sourceTree = "<group>"; };
+		8520C8451BA756D3008471EB /* B68UIFloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = B68UIFloatLabelTextField.swift; sourceTree = "<group>"; };
 		85225FED1B5A711C001E7BED /* iungo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iungo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85225FF01B5A711C001E7BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85225FF21B5A711C001E7BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -358,6 +360,7 @@
 				85A1F9601B6BB1F100F7121D /* SWRevealViewController.h */,
 				85A1F9611B6BB1F100F7121D /* SWRevealViewController.m */,
 				85563A8C1B9CD249005C926E /* SwiftyJSON.swift */,
+				8520C8451BA756D3008471EB /* B68UIFloatLabelTextField.swift */,
 				855F2EDA1B5EFA9700FF24A1 /* TransitionManager.swift */,
 			);
 			name = "Supporting files";
@@ -547,6 +550,7 @@
 				857739DF1B5E7ABA008ADFA0 /* Meeting.swift in Sources */,
 				855F2EDB1B5EFA9700FF24A1 /* TransitionManager.swift in Sources */,
 				85083F0F1B7A5CF8000497F2 /* NetworkGroupVC.swift in Sources */,
+				8520C8461BA756D3008471EB /* B68UIFloatLabelTextField.swift in Sources */,
 				85225FF91B5A711C001E7BED /* iungo.xcdatamodeld in Sources */,
 				855F2F271B5FCDA400FF24A1 /* MeetingAgenda.swift in Sources */,
 				855F2F251B5FCD8F00FF24A1 /* MeetingInfo.swift in Sources */,

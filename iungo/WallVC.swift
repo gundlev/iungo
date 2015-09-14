@@ -52,11 +52,11 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let noti = Noti(nnotiText: json["title"].stringValue, nfrom: json["from"].stringValue, nnotiId: snapshot.key, nread: json["read"].boolValue, nreference: json["reference"].stringValue, ntimestamp: json["timestamp"].stringValue, ntype: json["type"].stringValue)
             
                 let reference = Firebase(url: "https://brilliant-torch-4963.firebaseio.com" + json["reference"].stringValue)
-                print("https://brilliant-torch-4963.firebaseio.com" + json["reference"].stringValue)
+                //print("https://brilliant-torch-4963.firebaseio.com" + json["reference"].stringValue)
                 reference.observeSingleEventOfType(.Value, withBlock: { referenceData in
                     
-                    print("Here is the key" + referenceData.key)
-                    print(referenceData.value)
+                    //print("Here is the key" + referenceData.key)
+                    //print(referenceData.value)
                     switch json["type"].stringValue {
                     case "newMeeting":
                         let ref = Firebase(url: "https://brilliant-torch-4963.firebaseio.com/networkgroups/" + json["from"].stringValue)
@@ -89,6 +89,15 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.notifications = self.notifications.reverse()
             self.tableview.reloadData()
         })
+        
+        if userDefaults.boolForKey("MustEditProfile") {
+            let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil 2", message: "Vil du gå til profilen ændret det?", preferredStyle: .Alert)
+            profileAlert.addAction(UIAlertAction(title: "Ja!", style: UIAlertActionStyle.Cancel, handler: nil))
+            
+            userDefaults.setBool(false, forKey: "MustEditProfile")
+            self.presentViewController(profileAlert, animated: true, completion: nil)
+            
+        }
         
     }
     

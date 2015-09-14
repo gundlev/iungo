@@ -92,7 +92,7 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var fromVC = ""
     
-    var meet: Meeting = Meeting(oid: "000", ogroupId: "000", otitle: "Test", otext: "Test", odate: "Test", otime: "Test", oaddress: "Test", oname: "Test", onumber: 0)
+    var meet: Meeting = Meeting(oid: "000", ogroupId: "000", otitle: "Test", otext: "Test", ostart: 000, oend: 000, oaddress: "Test", oname: "Test", onumber: 0)
     
     
     override func viewDidLoad() {
@@ -140,8 +140,27 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
         case 2:
             print("case 3")
             info = tableView.dequeueReusableCellWithIdentifier("meetingInfo") as! MeetingInfo
-            info.date.text = meet.date
-            info.time.text = meet.time
+            
+            let startDate = NSDate(timeIntervalSince1970: NSTimeInterval(meet.startTimestamp!))
+            let endDate = NSDate(timeIntervalSince1970: NSTimeInterval(meet.endTimestamp!))
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd.MM.yyyy"
+            let dateText = dateFormatter.stringFromDate(startDate)
+            
+            let startTimeFormatter = NSDateFormatter()
+            startTimeFormatter.dateFormat = "HH:mm"
+            let startTimeText = startTimeFormatter.stringFromDate(startDate)
+            
+            let endTimeFormatter = NSDateFormatter()
+            endTimeFormatter.dateFormat = "HH:mm"
+            let endTimeText = endTimeFormatter.stringFromDate(endDate)
+            
+            let timeText = startTimeText + " - " + endTimeText
+            
+            
+            info.date.text = dateText
+            info.time.text = timeText
             
             var statusText: String
             if meet.status == 0 {

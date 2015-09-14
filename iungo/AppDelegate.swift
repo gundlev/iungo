@@ -35,6 +35,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         userDefaults.setBool(true, forKey: "firstTime")
         
+//        if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+//            while let presentedViewController = topController.presentedViewController {
+//                topController = presentedViewController
+//            }
+//            
+//            let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil 1", message: "Vil du gå til profilen ændret det?", preferredStyle: .Alert)
+//            profileAlert.addAction(UIAlertAction(title: "Ja!", style: UIAlertActionStyle.Cancel, handler: nil))
+//            
+//            topController.presentViewController(profileAlert, animated: true, completion: nil)
+//            
+//            // topController should now be your topmost view controller
+//        }
+        
         return true
     }
 
@@ -74,10 +87,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        if (self.userDefaults.stringForKey("company") == "" || self.userDefaults.stringForKey("description") == "" || self.userDefaults.stringForKey("picture") == "" || self.userDefaults.stringForKey("title") == "" || (self.userDefaults.stringForKey("phoneNo") == "" || self.userDefaults.stringForKey("mobilNo") == "")) {
+        
+            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+                while let presentedViewController = topController.presentedViewController {
+                    topController = presentedViewController
+                }
+                
+                let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil 2", message: "Vil du gå til profilen ændret det?", preferredStyle: .Alert)
+                profileAlert.addAction(UIAlertAction(title: "Ja!", style: UIAlertActionStyle.Cancel, handler: nil))
+                
+                topController.presentViewController(profileAlert, animated: true, completion: nil)
+                
+                // topController should now be your topmost view controller
+            }
+        }
+        
+        print("will enter foreground")
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        
+        
+//        let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil", message: "Vil du gå til profilen ændret det?", preferredStyle: .Alert)
+//        profileAlert.addAction(UIAlertAction(title: "Ja!", style: UIAlertActionStyle.Cancel, handler: nil))
+//        
+//        window!.rootViewController?.presentViewController(profileAlert, animated: true, completion: nil)
+//        self.window?.rootViewController?.presentViewController(profileAlert, animated: true, completion: nil)
+//        self.presentViewController(emailAlert, animated: true, completion: {
+//            
+//        })
+
+        
     }
 
     func applicationWillTerminate(application: UIApplication) {

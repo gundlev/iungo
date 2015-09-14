@@ -67,6 +67,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                         self.userDefaults.setObject(userJson["website"].stringValue, forKey: "website")
                         self.go()
                         self.wheel.startAnimating()
+                        
+                        (self.userDefaults.stringForKey("address") == "" || self.userDefaults.stringForKey("company") == "" || self.userDefaults.stringForKey("description") == "" || self.userDefaults.stringForKey("picture") == "" || self.userDefaults.stringForKey("title") == "" || (self.userDefaults.stringForKey("phoneNo") == "" || self.userDefaults.stringForKey("mobilNo") == ""))
+                        
+                        if (self.userDefaults.stringForKey("company") == "" || self.userDefaults.stringForKey("description") == "" || self.userDefaults.stringForKey("picture") == "" || self.userDefaults.stringForKey("title") == "" || (self.userDefaults.stringForKey("phoneNo") == "" || self.userDefaults.stringForKey("mobilNo") == "")) {
+                            self.userDefaults.setBool(true, forKey: "MustEditProfile")
+                        }
                     })
 
                     

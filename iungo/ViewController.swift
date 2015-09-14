@@ -12,7 +12,6 @@ import Firebase
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    //some change
     //let userid = "003"
     var meetings: [Meeting] = [Meeting]()
     var groups: [String] = [""]
@@ -89,27 +88,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 
                 // Follow the path to see if the user is an active member
                 let groupUrl = "https://brilliant-torch-4963.firebaseio.com" + ngroup.description
-                print(groupUrl)
+                //print(groupUrl)
                 let ngroupRef = Firebase(url:groupUrl)
                 // TODO: make this a single download event
                 ngroupRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
                     
-                    print("In first step")
+                    //print("In first step")
                     // Check if active
                     if snapshot.value as! String == "aktiv" {
                         // The user us active, so get the meetings from that group
                         let specificUrl = "https://brilliant-torch-4963.firebaseio.com/networkgroups/" + groupName + "/meetings"
-                        print(specificUrl)
+                        //print(specificUrl)
                         
                         let ref = Firebase(url: specificUrl)
                         // TODO: make this a single download event
                         ref.queryOrderedByChild("date").observeEventType(.Value, withBlock: { snapshot in
                             
-                            print("In second step")
+                            //print("In second step")
                             self.meetings.removeAll()
                             
                             let json = JSON(snapshot.value)
-                            print(json)
+                            //print(json)
                             
                             // Create meeting objects for all meetings, and add them to the meetings array.
                             for (key, subJson) in json {
@@ -126,18 +125,28 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                 
                                     let nameJson = JSON(groupNameData.value)
                                     
-                                    let meeting = Meeting(oid: key, ogroupId: groupName, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, odate: subJson["date"].stringValue, otime: subJson["time"].stringValue, oaddress: subJson["address"].stringValue, oname: nameJson["name"].stringValue, onumber: numberOfParticipating)
+                                    let nowDate = NSDate().timeIntervalSince1970
+                                    
+                                    let now: Int = Int(nowDate)
+                                    
+                                    if subJson["startTimestamp"].intValue > now {
+                                        let meeting = Meeting(oid: key, ogroupId: groupName, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, ostart: subJson["startTimestamp"].intValue, oend: subJson["endTimestamp"].intValue, oaddress: subJson["address"].stringValue, oname: nameJson["name"].stringValue, onumber: numberOfParticipating)
+                                    
+//                                    let meeting = Meeting(oid: key, ogroupId: groupName, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, odate: subJson["date"].stringValue, otime: subJson["time"].stringValue, oaddress: subJson["address"].stringValue, oname: nameJson["name"].stringValue, onumber: numberOfParticipating)
                                 
-                                    for (subkey, subsubJson) in subJson["participants"] {
-                                        meeting.setParticipant(subkey, status: subsubJson["status"].intValue)
-                                        if subkey == userDefaults.stringForKey("uid")! {
-                                        meeting.status = subsubJson["status"].intValue
+                                        for (subkey, subsubJson) in subJson["participants"] {
+                                            meeting.setParticipant(subkey, status: subsubJson["status"].intValue)
+                                            if subkey == userDefaults.stringForKey("uid")! {
+                                                meeting.status = subsubJson["status"].intValue
+                                            }
                                         }
-                                    }
                                 
-                                    self.meetings.append(meeting)
-                                    self.setCurrent()
-                                    self.tableview.reloadData()
+                                        self.meetings.append(meeting)
+                                        self.setCurrent()
+                                        self.tableview.reloadData()
+                                    }
+
+
                                 })
                                 
                                 
@@ -172,8 +181,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let localCell = tableView.dequeueReusableCellWithIdentifier("meeting") as! MeetingCell
         
+        let date = NSDate(timeIntervalSince1970: NSTimeInterval(currentMeetings[indexPath.row].startTimestamp!))
+        
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let timeText = dateFormatter.stringFromDate(date)
+        
         localCell.title.text = currentMeetings[indexPath.row].meetingTitle
-        localCell.date.text = currentMeetings[indexPath.row].date
+        localCell.date.text = timeText
         localCell.networkGroupName.text = currentMeetings[indexPath.row].name
         
         var statusText: String
@@ -208,7 +223,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         if segue.identifier == "meetingSegue" {
             let toViewController = segue.destinationViewController as! MeetingViewController
             let meet = self.currentMeetings[lastIndexSelected.row]
-            print(meet.meetingTitle)
+            //print(meet.meetingTitle)
             toViewController.meet = meet
             toViewController.fromVC = "ViewController"
             //toViewController.transitioningDelegate = self.transitionManager
