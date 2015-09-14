@@ -13,6 +13,7 @@ import Firebase
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     //let userid = "003"
+    var fromVC = ""
     var meetings: [Meeting] = [Meeting]()
     var groups: [String] = [""]
     var currentMeetings: [Meeting] = [Meeting]()
@@ -46,6 +47,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         print("viewWillAppear has been called")
     }
     
+    func goBack() {
+        if fromVC == "network" {
+            performSegueWithIdentifier("backToNetwork", sender: self)
+        }
+    }
+    
     override func viewDidLoad() {
         
         // Get permission for notifications
@@ -63,13 +70,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.navigationController?.navigationItem.hidesBackButton = true
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 69/255, green: 143/255, blue: 170/255, alpha: 1)
         
-        
-        
-        
         // Set up menu
-        menu.target = self.revealViewController()
-        menu.action = Selector("revealToggle:")
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        if fromVC == "network" {
+            menu.image = UIImage(named: "Back")
+            menu.action = Selector("goBack")
+            menu.target = self
+            self.navigationItem.rightBarButtonItem = nil
+        } else if fromVC == "" {
+            menu.target = self.revealViewController()
+            menu.action = Selector("revealToggle:")
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
+        
+        
+//        // Set up menu
+//        menu.target = self.revealViewController()
+//        menu.action = Selector("revealToggle:")
+//        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         
         groups.removeAll()
         

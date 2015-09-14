@@ -91,7 +91,12 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     if self.fullList.count == self.participants {
                         self.fullyLoaded = true
                         self.fullList.sortInPlace()
-                        self.currentList = self.fullList
+                        for user in self.fullList {
+                                //currentList = fullList
+                                if user.meetingStatus == "1" {
+                                    self.currentList.append(user)
+                                }
+                        }
                         self.tableview.reloadData()
                     }
                     
@@ -188,16 +193,15 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         if from == "meeting" {
             for user in self.fullList {
                 if segment.selectedSegmentIndex == 0 {
-                    currentList = fullList
-                } else if (segment.selectedSegmentIndex == 1) {
+                    //currentList = fullList
                     if user.meetingStatus == "1" {
                         currentList.append(user)
                     }
-                } else if (segment.selectedSegmentIndex == 2) {
+                } else if (segment.selectedSegmentIndex == 1) {
                     if user.meetingStatus == "-1" {
                         currentList.append(user)
                     }
-                } else if (segment.selectedSegmentIndex == 3) {
+                } else if (segment.selectedSegmentIndex == 2) {
                     if user.meetingStatus == "0" {
                         currentList.append(user)
                     }

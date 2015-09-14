@@ -887,10 +887,9 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Ocv-r4-YSw">
                                 <rect key="frame" x="20" y="72" width="560" height="29"/>
                                 <segments>
-                                    <segment title="Alle"/>
                                     <segment title="Tilmeldt"/>
                                     <segment title="Afvist"/>
-                                    <segment title="Ikke Svaret"/>
+                                    <segment title="Ikke svaret"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -2001,7 +2000,7 @@
         <segue reference="TVM-gi-wbF"/>
         <segue reference="xEH-AR-9kw"/>
         <segue reference="WxG-oX-1mZ"/>
-        <segue reference="uCP-WA-sfx"/>
         <segue reference="1HO-Yp-CYq"/>
+        <segue reference="L5S-H6-nzt"/>
     </inferredMetricsTieBreakers>
 </document>
