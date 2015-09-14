@@ -246,8 +246,8 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
             
             if user!.userTitle == "" {
-                top.title.text = "Ikke angivet"
-                top.title.alpha = 0.5
+//                top.title.text = "Ikke angivet"
+//                top.title.alpha = 0.5
             } else {
                 top.title.text = user!.userTitle
             }
@@ -258,29 +258,29 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         case 1:
             contact = tableView.dequeueReusableCellWithIdentifier("profileEditContactCell") as! ProfileEditContactCell
             if user!.phoneNo == "" {
-                contact.phoneNo.alpha = 0.5
-                contact.phoneNo.text = "Ikke angivet"
+//                contact.phoneNo.alpha = 0.5
+//                contact.phoneNo.text = "Ikke angivet"
             } else {
                 contact.phoneNo.text = user!.phoneNo
             }
             
             if user!.mobilNo == "" {
-                contact.mobilNo.alpha = 0.5
-                contact.mobilNo.text = "Ikke angivet"
+//                contact.mobilNo.alpha = 0.5
+//                contact.mobilNo.text = "Ikke angivet"
             } else {
                 contact.mobilNo.text = user!.mobilNo
             }
             
             if user!.email == "" {
-                contact.email.alpha = 0.5
-                contact.email.text = "Ikke angivet"
+//                contact.email.alpha = 0.5
+//                contact.email.text = "Ikke angivet"
             } else {
                 contact.email.text = user!.email
             }
             
             if user!.website == "" {
-                contact.website.alpha = 0.5
-                contact.website.text = "Ikke angivet"
+//                contact.website.alpha = 0.5
+//                contact.website.text = "Ikke angivet"
             } else {
                 contact.website.text = user!.website
             }
@@ -325,8 +325,8 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0: return CGFloat(280)
-        case 1: return CGFloat(150)
+        case 0: return CGFloat(300)
+        case 1: return CGFloat(180)
         case 2: return CGFloat(99)
         default: return CGFloat(280)
         }

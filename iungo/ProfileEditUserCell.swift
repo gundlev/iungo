@@ -21,5 +21,12 @@ class ProfileEditUserCell: UITableViewCell {
         profileImage.layer.borderColor = UIColor.whiteColor().CGColor
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
+        
+        name.attributedPlaceholder = NSAttributedString(string:"Name",
+            attributes:[NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.5)])
+        title.attributedPlaceholder = NSAttributedString(string:"Titel",
+            attributes:[NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.5)])
+        company.attributedPlaceholder = NSAttributedString(string:"Firma",
+            attributes:[NSForegroundColorAttributeName: UIColor(white: 1, alpha: 0.5)])
     }
 }
