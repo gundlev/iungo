@@ -279,8 +279,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, M
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.row {
-        case 0: return CGFloat(280)
-        case 1: return CGFloat(150)
+        case 0: return CGFloat(300)
+        case 1: return CGFloat(180)
         case 2: return CGFloat(99)
         default: return CGFloat(280)
         }

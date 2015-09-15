@@ -10,10 +10,14 @@ import UIKit
 
 class ProfileContactCell: UITableViewCell {
 
-    @IBOutlet weak var phoneNo: UILabel!
-    @IBOutlet weak var mobilNo: UILabel!
-    @IBOutlet weak var email: UILabel!
-    @IBOutlet weak var website: UILabel!
+    @IBOutlet weak var website: B68UIFloatLabelTextField!
+    @IBOutlet weak var email: B68UIFloatLabelTextField!
+    @IBOutlet weak var mobilNo: B68UIFloatLabelTextField!
+    @IBOutlet weak var phoneNo: B68UIFloatLabelTextField!
+//    @IBOutlet weak var phoneNo: UILabel!
+//    @IBOutlet weak var mobilNo: UILabel!
+//    @IBOutlet weak var email: UILabel!
+//    @IBOutlet weak var website: UILabel!
     
     @IBOutlet weak var iconOffice: UIButton!
     @IBOutlet weak var iconMobil: UIButton!

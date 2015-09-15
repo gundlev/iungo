@@ -12,11 +12,14 @@ class ProfileTopCell: UITableViewCell {
     
     @IBOutlet weak var profileImage: UIImageView!
 
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var name: B68UIFloatLabelTextField!
+   // @IBOutlet weak var name: UILabel!
     
-    @IBOutlet weak var userTitle: UILabel!
+    @IBOutlet weak var userTitle: B68UIFloatLabelTextField!
+    //@IBOutlet weak var userTitle: UILabel!
 
-    @IBOutlet weak var company: UILabel!
+    @IBOutlet weak var company: B68UIFloatLabelTextField!
+    //@IBOutlet weak var company: UILabel!
     
     override func awakeFromNib() {
         profileImage.layer.borderWidth = 1
