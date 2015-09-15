@@ -25,6 +25,12 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         
+        
+        // Get permission for notifications
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+        
         tableview.contentInset = UIEdgeInsetsZero
         // Setting up the navigation bar
         self.navigationItem.hidesBackButton = true

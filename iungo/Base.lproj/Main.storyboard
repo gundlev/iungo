@@ -147,9 +147,11 @@
                         <outlet property="segment" destination="jeE-AL-xAd" id="Ju6-bh-xRF"/>
                         <outlet property="tableview" destination="jPv-U1-Mqs" id="MrX-pz-Dw0"/>
                         <segue destination="G6P-M6-kme" kind="show" identifier="meetingSegue" id="yTF-dk-BFv"/>
+                        <segue destination="1qT-Na-iF2" kind="unwind" identifier="backToNetworkFromMeetings" unwindAction="backToNetwork:" id="hA7-cX-lQh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="1qT-Na-iF2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1151" y="258"/>
         </scene>
@@ -922,6 +924,7 @@
                         <segue destination="JU9-IV-Nzt" kind="show" identifier="listToProfile" id="L5S-H6-nzt"/>
                         <segue destination="2ul-ZK-XCl" kind="unwind" identifier="backToNetwork" unwindAction="backToNetwork:" id="9ED-xB-eLx"/>
                         <segue destination="2ul-ZK-XCl" kind="unwind" identifier="backToMeeting" unwindAction="exittingTheCurrentView2:" id="ygv-nF-BA2"/>
+                        <segue destination="2ul-ZK-XCl" kind="unwind" identifier="backToNetwork" unwindAction="exittingTheCurrentView2:" id="NSG-RW-fXg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ot6-DQ-GLZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1554,7 +1557,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hver 1. dag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2II-mG-t3k">
-                                                            <rect key="frame" x="423" y="8" width="105" height="21"/>
+                                                            <rect key="frame" x="440" y="8" width="105" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="105" id="4Hd-FL-ZhA"/>
                                                             </constraints>
@@ -1563,7 +1566,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="TorsOnsDag" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guT-UC-8CE">
-                                                            <rect key="frame" x="423" y="37" width="105" height="21"/>
+                                                            <rect key="frame" x="440" y="37" width="105" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="105" id="l0o-Jh-8kE"/>
                                                             </constraints>
@@ -1572,7 +1575,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="35:00-37:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pdN-wn-Hti">
-                                                            <rect key="frame" x="423" y="65" width="105" height="21"/>
+                                                            <rect key="frame" x="440" y="65" width="105" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="105" id="6xj-oE-Lce"/>
                                                             </constraints>
@@ -1602,7 +1605,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="3" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nhe-jy-eoo">
-                                                            <rect key="frame" x="423" y="94" width="47" height="21"/>
+                                                            <rect key="frame" x="440" y="94" width="47" height="21"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="47" id="Msb-N6-Hd1"/>
                                                             </constraints>
@@ -1614,11 +1617,11 @@
                                                     <color key="backgroundColor" red="0.1960784314" green="0.52941176469999995" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="DeU-xm-fQd" secondAttribute="trailing" constant="9" id="4MN-vo-E0z"/>
-                                                        <constraint firstAttribute="trailing" secondItem="pdN-wn-Hti" secondAttribute="trailing" constant="64" id="Pjp-xT-u0L"/>
+                                                        <constraint firstAttribute="trailing" secondItem="pdN-wn-Hti" secondAttribute="trailing" constant="47" id="Pjp-xT-u0L"/>
                                                         <constraint firstAttribute="trailing" secondItem="HfE-Ka-w70" secondAttribute="trailing" constant="9" id="RKQ-31-rW9"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Nhe-jy-eoo" secondAttribute="trailing" constant="122" id="WNe-fA-2Z0"/>
-                                                        <constraint firstAttribute="trailing" secondItem="2II-mG-t3k" secondAttribute="trailing" constant="64" id="evd-RV-h91"/>
-                                                        <constraint firstAttribute="trailing" secondItem="guT-UC-8CE" secondAttribute="trailing" constant="64" id="z4U-uI-QED"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Nhe-jy-eoo" secondAttribute="trailing" constant="105" id="WNe-fA-2Z0"/>
+                                                        <constraint firstAttribute="trailing" secondItem="2II-mG-t3k" secondAttribute="trailing" constant="47" id="evd-RV-h91"/>
+                                                        <constraint firstAttribute="trailing" secondItem="guT-UC-8CE" secondAttribute="trailing" constant="47" id="z4U-uI-QED"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -1701,6 +1704,7 @@
                         <outlet property="backButton" destination="Xb7-Xj-4xs" id="0lF-LJ-g6u"/>
                         <outlet property="tableView" destination="376-Pn-9w2" id="Ocv-a7-9yS"/>
                         <segue destination="3Fy-Ot-H13" kind="unwind" identifier="backToNetworkGroups" unwindAction="backToNetworkGroups:" id="bDT-OS-6lO"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="networkToMeetings" id="gqK-So-LJT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uv8-Fe-GUD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1993,14 +1997,15 @@
         <image name="phone" width="77" height="87"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4Hu-TN-8Rr"/>
-        <segue reference="gZe-YC-ugM"/>
+        <segue reference="yTF-dk-BFv"/>
+        <segue reference="gqK-So-LJT"/>
+        <segue reference="WxG-oX-1mZ"/>
         <segue reference="VDZ-tL-7al"/>
         <segue reference="p6J-Xu-KAN"/>
         <segue reference="TVM-gi-wbF"/>
+        <segue reference="gZe-YC-ugM"/>
         <segue reference="xEH-AR-9kw"/>
-        <segue reference="WxG-oX-1mZ"/>
-        <segue reference="1HO-Yp-CYq"/>
+        <segue reference="n3e-zZ-dbP"/>
         <segue reference="L5S-H6-nzt"/>
     </inferredMetricsTieBreakers>
 </document>

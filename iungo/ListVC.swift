@@ -74,16 +74,16 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     
                     var user = JSON(snapshot.value)
                     
-                    var profileImage = UIImage(named: "defaultProfileImage")
+                    var profileImage = UIImage(named: "defaultProfileImage")!
                     
                     let imageString = user["picture"].stringValue
                     
                     if imageString != "" {
-                        profileImage = UIImage(data: NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))!)
+                        profileImage = UIImage(data: NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))!)!
                     }
                     
                     //let userArray = [user["name"].stringValue, user["company"].stringValue, status]
-                    self.fullList.append(User(uname: user["name"].stringValue, ucompany: user["company"].stringValue, uuserId: userId, uuserTitle: user["title"].stringValue, uaddress: user["address"].stringValue, uphoneNo: user["phoneNo"].stringValue, umobilNo:user["mobilNo"].stringValue, uemail: user["email"].stringValue, uwebsite: user["website"].stringValue, UImage: profileImage!, uuserDescription:user["description"].stringValue , ustatus: status["status"].stringValue))
+                    self.fullList.append(User(uname: user["name"].stringValue, ucompany: user["company"].stringValue, uuserId: userId, uuserTitle: user["title"].stringValue, uaddress: user["address"].stringValue, uphoneNo: user["phoneNo"].stringValue, umobilNo:user["mobilNo"].stringValue, uemail: user["email"].stringValue, uwebsite: user["website"].stringValue, UImage: profileImage, uuserDescription:user["description"].stringValue , ustatus: status["status"].stringValue))
 
 //                    self.fullList.sortInPlace()
 //                    self.tableview.reloadData()
@@ -91,11 +91,21 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     if self.fullList.count == self.participants {
                         self.fullyLoaded = true
                         self.fullList.sortInPlace()
-                        for user in self.fullList {
+
+                        if self.from == "network" {
+                            for user in self.fullList {
                                 //currentList = fullList
-                                if user.meetingStatus == "1" {
+                                if user.meetingStatus == "aktiv" {
                                     self.currentList.append(user)
                                 }
+                            }
+                        } else {
+                                                        for user in self.fullList {
+                                    //currentList = fullList
+                                    if user.meetingStatus == "1" {
+                                        self.currentList.append(user)
+                                    }
+                            }
                         }
                         self.tableview.reloadData()
                     }

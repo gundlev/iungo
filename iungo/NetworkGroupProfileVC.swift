@@ -49,6 +49,7 @@ class NetworkGroupProfileVC: UIViewController, UITableViewDataSource, UITableVie
 //    }
     
     @IBAction func showMeetings(sender: UIButton) {
+        performSegueWithIdentifier("networkToMeetings", sender: self)
     }
     
     override func viewDidLoad() {
@@ -108,6 +109,11 @@ class NetworkGroupProfileVC: UIViewController, UITableViewDataSource, UITableVie
             toVC.url = "https://brilliant-torch-4963.firebaseio.com/networkgroups/" + networkGroup!.id + "/members"
             toVC.from = "network"
             toVC.participants = networkGroup!.size
+        } else if segue.identifier == "networkToMeetings" {
+            let toVC = segue.destinationViewController as! ViewController
+            toVC.fromVC = "network"
+            toVC.fromNetworkId = (networkGroup?.id)!
+            toVC.fromNetworkName = (networkGroup?.name)!
         }
     }
 }
