@@ -87,30 +87,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-        if (self.userDefaults.stringForKey("company") == "" || self.userDefaults.stringForKey("description") == "" || self.userDefaults.stringForKey("picture") == "" || self.userDefaults.stringForKey("title") == "" || (self.userDefaults.stringForKey("phoneNo") == "" || self.userDefaults.stringForKey("mobilNo") == "")) {
-        
-            if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
-                while let presentedViewController = topController.presentedViewController {
-                    topController = presentedViewController
+        let ref = Firebase(url: "https://brilliant-torch-4963.firebaseio.com")
+        if ref.authData != nil {
+            
+            if (self.userDefaults.stringForKey("company") == "" || self.userDefaults.stringForKey("description") == "" || self.userDefaults.stringForKey("picture") == "" || self.userDefaults.stringForKey("title") == "" || (self.userDefaults.stringForKey("phoneNo") == "" || self.userDefaults.stringForKey("mobilNo") == "")) {
+            
+                if var topController = UIApplication.sharedApplication().keyWindow?.rootViewController {
+                    while let presentedViewController = topController.presentedViewController {
+                        topController = presentedViewController
+                    }
+                    
+                    let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil", message: "Husk at du indtaste det du mangler.", preferredStyle: .Alert)
+                    
+                    profileAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
+                    
+                    topController.presentViewController(profileAlert, animated: true, completion: nil)
+                    
+                    // topController should now be your topmost view controller
                 }
-                
-                let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil", message: "Husk at du indtaste det du mangler.", preferredStyle: .Alert)
-                
-//                profileAlert.addAction(UIAlertAction(title: "Ja", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
-//                    
-//                    let profileNav = ProfileNavVC()
-//                    topController.presentViewController(profileNav, animated: false, completion: nil)
-//                }))
-                
-                profileAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
-                
-                topController.presentViewController(profileAlert, animated: true, completion: nil)
-                
-                // topController should now be your topmost view controller
             }
+            
+            print("will enter foreground")
         }
         
-        print("will enter foreground")
+            
     }
     
 

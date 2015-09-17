@@ -230,6 +230,13 @@
 			name = Wall;
 			sourceTree = "<group>";
 		};
+		8520C8511BAB5F1F008471EB /* ImageEnlargement */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ImageEnlargement;
+			sourceTree = "<group>";
+		};
 		85225FE41B5A711C001E7BED = {
 			isa = PBXGroup;
 			children = (
@@ -365,6 +372,7 @@
 		85A1F95F1B6BB1CF00F7121D /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				8520C8511BAB5F1F008471EB /* ImageEnlargement */,
 				85C33C8E1B5A747900C27530 /* iungo-Bridging-Header.h */,
 				85A1F9601B6BB1F100F7121D /* SWRevealViewController.h */,
 				85A1F9611B6BB1F100F7121D /* SWRevealViewController.m */,
