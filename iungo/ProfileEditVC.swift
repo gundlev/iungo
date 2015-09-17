@@ -16,7 +16,7 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var user: User?
     var imagePicker = UIImagePickerController()
     var indexpaths = [NSIndexPath]()
-    @IBOutlet weak var tableview: MyTableView!
+    @IBOutlet weak var tableview: CustomTableView!
     
     @IBAction func fortryd(sender: AnyObject) {
         performSegueWithIdentifier("finishEditingProfile", sender: self)

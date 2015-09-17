@@ -13,6 +13,45 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     let userDefaults = NSUserDefaults.standardUserDefaults()
     
+
+    @IBAction func forgotPassword(sender: AnyObject) {
+        //1. Create the alert controller.
+        let alert = UIAlertController(title: "Glemt Password", message: "Indtast email så sender vi et midlertidigt password.", preferredStyle: .Alert)
+        
+        //2. Add the text field. You can configure it however you need.
+        alert.addTextFieldWithConfigurationHandler({ (textField) -> Void in
+            textField.placeholder = "Email"
+        })
+        
+        //3. Grab the value from the text field, and print it when the user clicks OK.
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
+            let textField = alert.textFields![0] as UITextField
+            print("Text field: \(textField.text)")
+            
+            if textField.text != "" {
+                let passwordRef = Firebase(url: "https://brilliant-torch-4963.firebaseio.com")
+                passwordRef.resetPasswordForUser(textField.text, withCompletionBlock: { error in
+                    if error != nil {
+                        // There was an error processing the request
+                        let failAlert = UIAlertController(title: "Email findes ikke", message: "Den indtastede email matcher ikke nogen bruger i vores database.", preferredStyle: .Alert)
+                        failAlert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
+                        
+                        self.presentViewController(failAlert, animated: true, completion: nil)
+
+                    } else {
+                        let okAlert = UIAlertController(title: "Et midlertidigt password er sendt!", message: "Husk at du selv skal ændre dit password indefor 24 timer, gå til \"Indstillinger\" -> \"Skift password\"", preferredStyle: .Alert)
+                        okAlert.addAction(UIAlertAction(title: "Forstået!", style: UIAlertActionStyle.Cancel, handler: nil))
+                        
+                        self.presentViewController(okAlert, animated: true, completion: nil)
+                    }
+                })
+            }
+        }))
+        
+        // 4. Present the alert.
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var backgroundImage: UIImageView!

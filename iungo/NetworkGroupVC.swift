@@ -18,7 +18,7 @@ class NetworkGroupVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var menu: UIBarButtonItem!
     @IBOutlet weak var segment: UISegmentedControl!
-    @IBOutlet weak var tableView: MyTableView!
+    @IBOutlet weak var tableView: CustomTableView!
     
     @IBAction func segmentChanged(sender: AnyObject) {
         tableView.reloadData()

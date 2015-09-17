@@ -12,6 +12,7 @@ import Firebase
 class Noti: NSObject, Comparable {
     
     var notiText: String
+    var fromName: String
     var from: String
     var notiId: String
     var read: Bool
@@ -22,7 +23,7 @@ class Noti: NSObject, Comparable {
     var user: User?
     var networkGroup: NetworkGroup?
     
-    init(nnotiText: String, nfrom: String, nnotiId: String, nread: Bool, nreference: String, ntimestamp: String, ntype: String) {
+    init(nnotiText: String, nfrom: String, nnotiId: String, nread: Bool, nreference: String, ntimestamp: String, ntype: String, nfromName: String) {
         self.notiText = nnotiText
         self.from = nfrom
         self.notiId = nnotiId
@@ -30,6 +31,7 @@ class Noti: NSObject, Comparable {
         self.reference = nreference
         self.timestamp = ntimestamp
         self.type = ntype
+        self.fromName = nfromName
     }
     
 //    func setMeeting(reference: String) {

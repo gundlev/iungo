@@ -12,7 +12,7 @@ import EventKitUI
 
 class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var tableview: MyTableView!
+    @IBOutlet weak var tableview: CustomTableView!
     @IBOutlet weak var menu: UIBarButtonItem!
     @IBAction func backToWall(sender: UIStoryboardSegue) {
         self.tableview.deselectRowAtIndexPath(lastIndexPath!, animated: true)
@@ -22,6 +22,7 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var notifications = [Noti]()
     var notiSelected: Noti?
     var lastIndexPath: NSIndexPath?
+    
     
     override func viewDidLoad() {
         
@@ -53,9 +54,9 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //            print(snapshot.key)
 //            print(snapshot.value)
             let json = JSON(snapshot.value)
-
             
-            let noti = Noti(nnotiText: json["title"].stringValue, nfrom: json["from"].stringValue, nnotiId: snapshot.key, nread: json["read"].boolValue, nreference: json["reference"].stringValue, ntimestamp: json["timestamp"].stringValue, ntype: json["type"].stringValue)
+            
+            let noti = Noti(nnotiText: json["title"].stringValue, nfrom: json["from"].stringValue, nnotiId: snapshot.key, nread: json["read"].boolValue, nreference: json["reference"].stringValue, ntimestamp: json["timestamp"].stringValue, ntype: json["type"].stringValue, nfromName: json["fromName"].stringValue)
             
                 let reference = Firebase(url: "https://brilliant-torch-4963.firebaseio.com" + json["reference"].stringValue)
                 //print("https://brilliant-torch-4963.firebaseio.com" + json["reference"].stringValue)
@@ -97,8 +98,8 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         })
         
         if userDefaults.boolForKey("MustEditProfile") {
-            let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil 2", message: "Vil du gå til profilen ændret det?", preferredStyle: .Alert)
-            profileAlert.addAction(UIAlertAction(title: "Ja!", style: UIAlertActionStyle.Cancel, handler: nil))
+            let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil 2", message: "Husk at du indtaste det du mangler.", preferredStyle: .Alert)
+            profileAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
             
             userDefaults.setBool(false, forKey: "MustEditProfile")
             self.presentViewController(profileAlert, animated: true, completion: nil)
@@ -157,7 +158,7 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             timeText = dateFormatter.stringFromDate(date)
         }
         
-        cell.cellTitle.text = (notifications[indexPath.row].from + prefix)
+        cell.cellTitle.text = (notifications[indexPath.row].fromName + prefix)
         cell.cellText.text = notifications[indexPath.row].notiText
         cell.time.text = timeText
         
@@ -182,7 +183,25 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         // Set notification to read
         print("Setting read to true")
         let url = "https://brilliant-torch-4963.firebaseio.com/notifications/" + notifications[indexPath.row].notiId
+        let userUrl = "https://brilliant-torch-4963.firebaseio.com/users/" + userDefaults.stringForKey("uid")!
+        print("This is the user URL: " + userUrl)
         print(url)
+        let userRef = Firebase(url: userUrl)
+        
+        if !notifications[indexPath.row].read {
+            userRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            
+            let userJson = JSON(snapshot.value)
+            if userJson["notifications"].intValue > 0 {
+                let number = userJson["notifications"].intValue - 1
+                userRef.childByAppendingPath("notifications").setValue(number)
+                UIApplication.sharedApplication().applicationIconBadgeNumber = number
+            }
+            
+            })
+        }
+        
+        
         let ref = Firebase(url: url)
         ref.childByAppendingPath("read").setValue(true)
         
@@ -208,6 +227,8 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
             case "wallToMeeting":
+                
+                
                 let VC = segue.destinationViewController as! MeetingViewController
                 VC.meet = notiSelected!.meeting!
                 VC.fromVC = "wall"

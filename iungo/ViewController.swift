@@ -144,7 +144,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                         let now: Int = Int(nowDate)
                                         
                                         if subJson["startTimestamp"].intValue > now {
-                                            let meeting = Meeting(oid: key, ogroupId: groupName, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, ostart: subJson["startTimestamp"].intValue, oend: subJson["endTimestamp"].intValue, oaddress: subJson["address"].stringValue, oname: nameJson["name"].stringValue, onumber: numberOfParticipating)
+                                            let meeting = Meeting(oid: key, ogroupId: groupName, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, ostart: subJson["startTimestamp"].intValue, oend: subJson["endTimestamp"].intValue, oaddress: subJson["address"].stringValue, oname: nameJson["name"].stringValue, onumber: numberOfParticipating, oreferat: subJson["referat"].stringValue)
                                             
                                             //                                    let meeting = Meeting(oid: key, ogroupId: groupName, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, odate: subJson["date"].stringValue, otime: subJson["time"].stringValue, oaddress: subJson["address"].stringValue, oname: nameJson["name"].stringValue, onumber: numberOfParticipating)
                                             
@@ -202,8 +202,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                             numberOfParticipating++
                         }
                     }
-                        let meeting = Meeting(oid: key, ogroupId: self.fromNetworkId, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, ostart: subJson["startTimestamp"].intValue, oend: subJson["endTimestamp"].intValue, oaddress: subJson["address"].stringValue, oname: self.fromNetworkName, onumber: numberOfParticipating)
-                        
+                    let meeting = Meeting(oid: key, ogroupId: self.fromNetworkId, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, ostart: subJson["startTimestamp"].intValue, oend: subJson["endTimestamp"].intValue, oaddress: subJson["address"].stringValue, oname: self.fromNetworkName, onumber: numberOfParticipating, oreferat: subJson["referat"].stringValue)
+                    
                         for (subkey, subsubJson) in subJson["participants"] {
                             meeting.setParticipant(subkey, status: subsubJson["status"].intValue)
                             if subkey == userDefaults.stringForKey("uid")! {

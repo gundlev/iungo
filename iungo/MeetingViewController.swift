@@ -19,6 +19,10 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var backButton: UIBarButtonItem!
     
     @IBOutlet weak var segment: UISegmentedControl!
+
+    @IBAction func showReferat(sender: AnyObject) {
+        performSegueWithIdentifier("toReferat", sender: self)
+    }
     
     @IBAction func saveCal(sender: UIButton) {
         // 1
@@ -92,7 +96,7 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var fromVC = ""
     
-    var meet: Meeting = Meeting(oid: "000", ogroupId: "000", otitle: "Test", otext: "Test", ostart: 000, oend: 000, oaddress: "Test", oname: "Test", onumber: 0)
+    var meet: Meeting = Meeting(oid: "000", ogroupId: "000", otitle: "Test", otext: "Test", ostart: 000, oend: 000, oaddress: "Test", oname: "Test", onumber: 0, oreferat: "test")
     
     
     override func viewDidLoad() {
@@ -170,8 +174,15 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
             } else {
                 statusText = "Tilmeldt"
             }
+            
             info.status.text = statusText
             info.numberOfPart.text = String(meet.numberOfParticipating)
+            
+            if meet.referat == "" {
+                info.referatButton.enabled = false
+                info.referatButton.alpha = 0.5
+            }
+            
             return info
         case 3:
             print("default")
@@ -198,7 +209,7 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
         switch indexPath.row {
         case 0: return CGFloat(44)
         case 1: return CGFloat(140)
-        case 2: return CGFloat(180)
+        case 2: return CGFloat(200)
         case 3: return CGFloat(180)
         default: return CGFloat(65)
         }
@@ -221,6 +232,9 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
             toViewController.participants = meet.participants.count
             toViewController.from = "meeting"
             //toViewController.transitioningDelegate = self.transitionManager
+        } else if segue.identifier == "toReferat" {
+            let VC = segue.destinationViewController as! ReferatVC
+            VC.referat = meet.referat
         }
     }
     

@@ -24,6 +24,9 @@ class Meeting: NSObject, Comparable {
     var address: String
     var name: String
     var numberOfParticipating: Int
+    var referat: String
+    
+    static let userDefaults = NSUserDefaults.standardUserDefaults()
     
 //    init(oid: String, ogroupId: String, otitle: String, otext: String, odate: String, otime:String, oaddress: String, oname: String, onumber: Int) {
 //        self.id = oid
@@ -37,7 +40,21 @@ class Meeting: NSObject, Comparable {
 //        self.numberOfParticipating = onumber
 //    }
     
-    init(oid: String, ogroupId: String, otitle: String, otext: String, ostart: Int, oend:Int, oaddress: String, oname: String, onumber: Int) {
+//    init(oid: String, ogroupId: String, otitle: String, otext: String, ostart: Int, oend:Int, oaddress: String, oname: String, onumber: Int) {
+//        self.id = oid
+//        self.groupId = ogroupId
+//        self.meetingTitle = otitle
+//        self.meetingText = otext
+//        self.startTimestamp = ostart
+//        self.endTimestamp = oend
+//        self.address = oaddress
+//        self.name = oname
+//        self.numberOfParticipating = onumber
+//        self.date = ""
+//        self.time = ""
+//    }
+    
+    init(oid: String, ogroupId: String, otitle: String, otext: String, ostart: Int, oend:Int, oaddress: String, oname: String, onumber: Int, oreferat: String) {
         self.id = oid
         self.groupId = ogroupId
         self.meetingTitle = otitle
@@ -49,6 +66,7 @@ class Meeting: NSObject, Comparable {
         self.numberOfParticipating = onumber
         self.date = ""
         self.time = ""
+        self.referat = oreferat
     }
     
     func setParticipant(userid: String, status: Int) {
@@ -65,7 +83,14 @@ class Meeting: NSObject, Comparable {
             }
         }
         
-        let meeting = Meeting(oid: mid, ogroupId: groupId, otitle: json["title"].stringValue, otext: json["text"].stringValue, ostart: json["startTimestamp"].intValue, oend: json["endTimestamp"].intValue, oaddress: json["address"].stringValue, oname: network, onumber: numberOfParticipating)
+        let meeting = Meeting(oid: mid, ogroupId: groupId, otitle: json["title"].stringValue, otext: json["text"].stringValue, ostart: json["startTimestamp"].intValue, oend: json["endTimestamp"].intValue, oaddress: json["address"].stringValue, oname: network, onumber: numberOfParticipating, oreferat: json["referat"].stringValue)
+        
+        for (subkey, subsubJson) in json["participants"] {
+            meeting.setParticipant(subkey, status: subsubJson["status"].intValue)
+            if subkey == userDefaults.stringForKey("uid")! {
+                meeting.status = subsubJson["status"].intValue
+            }
+        }
         
         return meeting
         

@@ -15,7 +15,7 @@ class NetworkGroupProfileVC: UIViewController, UITableViewDataSource, UITableVie
     var networkGroup: NetworkGroup?
     
     @IBOutlet weak var backButton: UIBarButtonItem!
-    @IBOutlet weak var tableView: MyTableView!
+    @IBOutlet weak var tableView: CustomTableView!
     @IBAction func backButtonPressed(sender: AnyObject) {
         performSegueWithIdentifier("backToNetworkGroups", sender: self)
     }

@@ -10,7 +10,7 @@ import UIKit
 
 class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-    let menu = ["Væg", "Netværksgrupper", "Mine Møder", "Profil", "Log ud"]
+    let menu = ["Væg", "Netværksgrupper", "Mine Møder", "Profil", "Indstillinger", "Log ud"]
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         

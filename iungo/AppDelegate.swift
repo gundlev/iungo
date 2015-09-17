@@ -94,8 +94,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     topController = presentedViewController
                 }
                 
-                let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil 2", message: "Vil du gå til profilen ændret det?", preferredStyle: .Alert)
-                profileAlert.addAction(UIAlertAction(title: "Ja!", style: UIAlertActionStyle.Cancel, handler: nil))
+                let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil", message: "Husk at du indtaste det du mangler.", preferredStyle: .Alert)
+                
+//                profileAlert.addAction(UIAlertAction(title: "Ja", style: UIAlertActionStyle.Default, handler: { (action) -> Void in
+//                    
+//                    let profileNav = ProfileNavVC()
+//                    topController.presentViewController(profileNav, animated: false, completion: nil)
+//                }))
+                
+                profileAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
                 
                 topController.presentViewController(profileAlert, animated: true, completion: nil)
                 
@@ -105,6 +112,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         print("will enter foreground")
     }
+    
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.

@@ -19,4 +19,6 @@ class MeetingInfo: UITableViewCell {
     @IBOutlet weak var status: UILabel!
         
     @IBOutlet weak var numberOfPart: UILabel!
+    
+    @IBOutlet weak var referatButton: UIButton!
 }

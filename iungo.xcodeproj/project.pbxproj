@@ -17,6 +17,10 @@
 		85059C2C1B9C924A001F9F15 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85059C2B1B9C924A001F9F15 /* Assets.xcassets */; };
 		85083F0F1B7A5CF8000497F2 /* NetworkGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85083F0E1B7A5CF8000497F2 /* NetworkGroupVC.swift */; };
 		8520C8461BA756D3008471EB /* B68UIFloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8520C8451BA756D3008471EB /* B68UIFloatLabelTextField.swift */; settings = {ASSET_TAGS = (); }; };
+		8520C8481BA81D06008471EB /* ProfileNavVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8520C8471BA81D06008471EB /* ProfileNavVC.swift */; settings = {ASSET_TAGS = (); }; };
+		8520C84A1BAA066F008471EB /* ReferatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8520C8491BAA066F008471EB /* ReferatVC.swift */; settings = {ASSET_TAGS = (); }; };
+		8520C84C1BAA100C008471EB /* IndstillingerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8520C84B1BAA100C008471EB /* IndstillingerVC.swift */; settings = {ASSET_TAGS = (); }; };
+		8520C8501BAADA95008471EB /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8520C84F1BAADA95008471EB /* CustomTableView.swift */; settings = {ASSET_TAGS = (); }; };
 		85225FF11B5A711C001E7BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85225FF01B5A711C001E7BED /* AppDelegate.swift */; };
 		85225FF31B5A711C001E7BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85225FF21B5A711C001E7BED /* ViewController.swift */; };
 		85225FF61B5A711C001E7BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85225FF41B5A711C001E7BED /* Main.storyboard */; };
@@ -49,7 +53,6 @@
 		857739DF1B5E7ABA008ADFA0 /* Meeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857739DE1B5E7ABA008ADFA0 /* Meeting.swift */; };
 		857A62051B5D284500AA3921 /* MeetingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 857A62041B5D284500AA3921 /* MeetingCell.swift */; };
 		858985C21B751D6800541557 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858985C11B751D6800541557 /* TestVC.swift */; };
-		858985C41B753D3200541557 /* MyTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858985C31B753D3200541557 /* MyTableView.swift */; };
 		858985C61B75FA7800541557 /* MeetingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858985C51B75FA7800541557 /* MeetingButton.swift */; };
 		858985C81B77526B00541557 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858985C71B77526B00541557 /* ProfileVC.swift */; };
 		858985CC1B7A05C500541557 /* ProfileTopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 858985CB1B7A05C500541557 /* ProfileTopCell.swift */; };
@@ -111,6 +114,10 @@
 		85059C2B1B9C924A001F9F15 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		85083F0E1B7A5CF8000497F2 /* NetworkGroupVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkGroupVC.swift; sourceTree = "<group>"; };
 		8520C8451BA756D3008471EB /* B68UIFloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = B68UIFloatLabelTextField.swift; sourceTree = "<group>"; };
+		8520C8471BA81D06008471EB /* ProfileNavVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileNavVC.swift; sourceTree = "<group>"; };
+		8520C8491BAA066F008471EB /* ReferatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferatVC.swift; sourceTree = "<group>"; };
+		8520C84B1BAA100C008471EB /* IndstillingerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndstillingerVC.swift; sourceTree = "<group>"; };
+		8520C84F1BAADA95008471EB /* CustomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
 		85225FED1B5A711C001E7BED /* iungo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iungo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85225FF01B5A711C001E7BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85225FF21B5A711C001E7BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -149,7 +156,6 @@
 		857739DE1B5E7ABA008ADFA0 /* Meeting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meeting.swift; sourceTree = "<group>"; };
 		857A62041B5D284500AA3921 /* MeetingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingCell.swift; sourceTree = "<group>"; };
 		858985C11B751D6800541557 /* TestVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
-		858985C31B753D3200541557 /* MyTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableView.swift; sourceTree = "<group>"; };
 		858985C51B75FA7800541557 /* MeetingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeetingButton.swift; sourceTree = "<group>"; };
 		858985C71B77526B00541557 /* ProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		858985CB1B7A05C500541557 /* ProfileTopCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTopCell.swift; sourceTree = "<group>"; };
@@ -342,13 +348,16 @@
 				855F2ED81B5EF6FF00FF24A1 /* MeetingViewController.swift */,
 				858985C11B751D6800541557 /* TestVC.swift */,
 				858985C71B77526B00541557 /* ProfileVC.swift */,
-				858985C31B753D3200541557 /* MyTableView.swift */,
 				85083F0E1B7A5CF8000497F2 /* NetworkGroupVC.swift */,
 				85DFDDF81B85F49C00A0BE72 /* NetworkGroupProfileVC.swift */,
 				85DE97E51B961BFC005ACFEF /* LoginVC.swift */,
 				85059C181B963FBD001F9F15 /* PreloaderVC.swift */,
 				85059C251B9873D6001F9F15 /* WallVC.swift */,
 				85563A9D1BA15422005C926E /* ProfileEditVC.swift */,
+				8520C8471BA81D06008471EB /* ProfileNavVC.swift */,
+				8520C8491BAA066F008471EB /* ReferatVC.swift */,
+				8520C84B1BAA100C008471EB /* IndstillingerVC.swift */,
+				8520C84F1BAADA95008471EB /* CustomTableView.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -542,6 +551,7 @@
 				858985CC1B7A05C500541557 /* ProfileTopCell.swift in Sources */,
 				85DE97E61B961BFC005ACFEF /* LoginVC.swift in Sources */,
 				858985D21B7A065600541557 /* ProfileDescriptionCell.swift in Sources */,
+				8520C8481BA81D06008471EB /* ProfileNavVC.swift in Sources */,
 				855F2F231B5FCD7900FF24A1 /* MeetingPlace.swift in Sources */,
 				85059C241B987372001F9F15 /* WallReminderCell.swift in Sources */,
 				85DFDDFE1B85FBB100A0BE72 /* NetworkInfoCell.swift in Sources */,
@@ -549,6 +559,7 @@
 				85563AA11BA1B988005C926E /* ProfileEditTopCell.swift in Sources */,
 				857739DF1B5E7ABA008ADFA0 /* Meeting.swift in Sources */,
 				855F2EDB1B5EFA9700FF24A1 /* TransitionManager.swift in Sources */,
+				8520C8501BAADA95008471EB /* CustomTableView.swift in Sources */,
 				85083F0F1B7A5CF8000497F2 /* NetworkGroupVC.swift in Sources */,
 				8520C8461BA756D3008471EB /* B68UIFloatLabelTextField.swift in Sources */,
 				85225FF91B5A711C001E7BED /* iungo.xcdatamodeld in Sources */,
@@ -564,7 +575,6 @@
 				85059C191B963FBD001F9F15 /* PreloaderVC.swift in Sources */,
 				85563AA91BA1C7E1005C926E /* TestCell.swift in Sources */,
 				857A62051B5D284500AA3921 /* MeetingCell.swift in Sources */,
-				858985C41B753D3200541557 /* MyTableView.swift in Sources */,
 				85C2D2891B6CCA8900513FA4 /* ListCell.swift in Sources */,
 				85225FF31B5A711C001E7BED /* ViewController.swift in Sources */,
 				85059C1B1B986BA3001F9F15 /* Noti.swift in Sources */,
@@ -575,7 +585,9 @@
 				858985D01B7A064000541557 /* ProfileAddressCell.swift in Sources */,
 				85C2D2871B6CC84700513FA4 /* ListVC.swift in Sources */,
 				85C2D28F1B6CE23F00513FA4 /* User.swift in Sources */,
+				8520C84A1BAA066F008471EB /* ReferatVC.swift in Sources */,
 				85563AAB1BA1D2D5005C926E /* ProfileEditUserCell.swift in Sources */,
+				8520C84C1BAA100C008471EB /* IndstillingerVC.swift in Sources */,
 				85563A8D1B9CD249005C926E /* SwiftyJSON.swift in Sources */,
 				854463E31B7A598700C25F6C /* GMNavVC.swift in Sources */,
 				85DFDDF51B84C3D500A0BE72 /* NetworkGroupCell.swift in Sources */,
