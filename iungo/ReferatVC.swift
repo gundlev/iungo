@@ -28,6 +28,5 @@ class ReferatVC: UIViewController {
         
         referatText.text = referat!
         self.referatText.scrollRangeToVisible(NSMakeRange(0, 0))
-        self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
 }

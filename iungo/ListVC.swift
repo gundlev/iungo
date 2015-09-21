@@ -78,8 +78,16 @@ class ListVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
                     
                     let imageString = user["picture"].stringValue
                     
+                    print(userId)
+                    
                     if imageString != "" {
-                        profileImage = UIImage(data: NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0))!)!
+                        
+                        if let data = NSData(base64EncodedString: imageString, options: NSDataBase64DecodingOptions(rawValue: 0)) {
+                            if let img = UIImage(data: data) {
+                                profileImage = img
+                            }
+                        }
+                        
                     }
                     
                     //let userArray = [user["name"].stringValue, user["company"].stringValue, status]

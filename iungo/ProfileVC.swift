@@ -173,6 +173,7 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, M
         switch indexPath.row {
         case 0:
             top = tableView.dequeueReusableCellWithIdentifier("profileTopCell") as! ProfileTopCell
+            top.VC = self
             top.profileImage.image = user.profileImage
             top.name.text = user.name
             if user.company == "" {

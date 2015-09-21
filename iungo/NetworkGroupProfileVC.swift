@@ -80,6 +80,7 @@ class NetworkGroupProfileVC: UIViewController, UITableViewDataSource, UITableVie
             desc = tableView.dequeueReusableCellWithIdentifier("NetworkDescriptionCell") as! NetworkDescriptionCell
             desc.descriptionText.text = networkGroup?.networkDescription
             desc.descriptionText.textColor = UIColor.whiteColor()
+            desc.descriptionText.scrollRangeToVisible(NSMakeRange(0, 0))
             return desc
         }
         

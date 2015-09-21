@@ -189,6 +189,7 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
             agenda = tableView.dequeueReusableCellWithIdentifier("meetingAgenda") as! MeetingAgenda
             agenda.textBox.text = meet.meetingText
             agenda.textBox.textColor = UIColor.whiteColor()
+            agenda.textBox.scrollRangeToVisible(NSMakeRange(0, 0))
             return agenda
         default:
             button = tableView.dequeueReusableCellWithIdentifier("meetingButton") as! MeetingButton
@@ -235,7 +236,7 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
         } else if segue.identifier == "toReferat" {
             let VC = segue.destinationViewController as! ReferatVC
             VC.referat = meet.referat
-        }
+        } 
     }
     
     // Utility functions

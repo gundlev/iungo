@@ -43,10 +43,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func exittingTheCurrentView(sender: UIStoryboardSegue) {
         self.tableview.deselectRowAtIndexPath(lastIndexSelected, animated: true)
+        //currentMeetings.removeAtIndex(lastIndexSelected.row)
+        self.setCurrent()
+
     }
     
     override func viewWillAppear(animated: Bool) {
         print("viewWillAppear has been called")
+        self.tableview.reloadData()
+        print("fromVC: " + fromVC)
+        for meeti in meetings {
+            print(meeti)
+        }
     }
     
     func goBack() {
@@ -95,7 +103,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             
             groupRef.observeEventType(.Value, withBlock: { snapshot in
                 
+                print("\n\n\n\n\nHere are the groups")
                 let jsonGroups = JSON(snapshot.value)
+                //print(jsonGroups)
                 
                 // Go through the list of groups
                 for (groupName, ngroup) in jsonGroups {
@@ -107,7 +117,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     // TODO: make this a single download event
                     ngroupRef.observeSingleEventOfType(.Value, withBlock: {snapshot in
                         
-                        //print("In first step")
+                        //print("1")
                         // Check if active
                         if snapshot.value as! String == "aktiv" {
                             // The user us active, so get the meetings from that group
@@ -116,8 +126,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                             
                             let ref = Firebase(url: specificUrl)
                             // TODO: make this a single download event
-                            ref.queryOrderedByChild("date").observeEventType(.Value, withBlock: { snapshot in
-                                
+                            ref.queryOrderedByChild("date").observeSingleEventOfType(.Value, withBlock: { snapshot in
+                                //print("2")
                                 //print("In second step")
                                 self.meetings.removeAll()
                                 
@@ -136,7 +146,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                     let groupNameRef = Firebase(url: ("https://brilliant-torch-4963.firebaseio.com/networkgroups/" + groupName))
                                     
                                     groupNameRef.observeSingleEventOfType(.Value, withBlock: { groupNameData in
-                                        
+                                        //print("3")
                                         let nameJson = JSON(groupNameData.value)
                                         
                                         let nowDate = NSDate().timeIntervalSince1970
@@ -145,8 +155,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                         
                                         if subJson["startTimestamp"].intValue > now {
                                             let meeting = Meeting(oid: key, ogroupId: groupName, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, ostart: subJson["startTimestamp"].intValue, oend: subJson["endTimestamp"].intValue, oaddress: subJson["address"].stringValue, oname: nameJson["name"].stringValue, onumber: numberOfParticipating, oreferat: subJson["referat"].stringValue)
-                                            
-                                            //                                    let meeting = Meeting(oid: key, ogroupId: groupName, otitle: subJson["title"].stringValue, otext: subJson["text"].stringValue, odate: subJson["date"].stringValue, otime: subJson["time"].stringValue, oaddress: subJson["address"].stringValue, oname: nameJson["name"].stringValue, onumber: numberOfParticipating)
                                             
                                             for (subkey, subsubJson) in subJson["participants"] {
                                                 meeting.setParticipant(subkey, status: subsubJson["status"].intValue)
@@ -158,6 +166,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                                             self.meetings.append(meeting)
                                             self.setCurrent()
                                             self.tableview.reloadData()
+                                            //print("Number of meetings in the array: " + String(self.meetings.count))
                                         }
                                     })
                                 }
@@ -186,7 +195,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             let ref = Firebase(url: specificUrl)
             // TODO: make this a single download event
             ref.queryOrderedByChild("date").observeEventType(.Value, withBlock: { snapshot in
-                
+                print("4")
                 //print("In second step")
                 self.meetings.removeAll()
                 
@@ -230,6 +239,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let localCell = tableView.dequeueReusableCellWithIdentifier("meeting") as! MeetingCell
         
         let date = NSDate(timeIntervalSince1970: NSTimeInterval(currentMeetings[indexPath.row].startTimestamp!))

@@ -233,11 +233,23 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <textInputTraits key="textInputTraits"/>
                                                         </textField>
+                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDL-X4-AU4">
+                                                            <rect key="frame" x="211" y="10" width="150" height="150"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="150" id="mSA-IR-X7O"/>
+                                                                <constraint firstAttribute="height" constant="150" id="tMG-VQ-pJZ"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <action selector="ImageButton:" destination="knc-ql-Loo" eventType="touchUpInside" id="U3Z-hz-aCO"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.1960784314" green="0.52941176469999995" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="NDL-X4-AU4" firstAttribute="top" secondItem="w4n-O2-4ka" secondAttribute="top" constant="10" id="Jar-2C-fYk"/>
                                                         <constraint firstItem="Iwz-wH-nu0" firstAttribute="top" secondItem="w4n-O2-4ka" secondAttribute="top" constant="1" id="RKI-Kt-xqg"/>
                                                         <constraint firstItem="Iwz-wH-nu0" firstAttribute="centerX" secondItem="w4n-O2-4ka" secondAttribute="centerX" id="kPr-V8-Gi8"/>
+                                                        <constraint firstItem="NDL-X4-AU4" firstAttribute="centerX" secondItem="w4n-O2-4ka" secondAttribute="centerX" id="zmh-F6-O9Z"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>

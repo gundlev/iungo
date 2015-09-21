@@ -21,6 +21,12 @@
 		8520C84A1BAA066F008471EB /* ReferatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8520C8491BAA066F008471EB /* ReferatVC.swift */; settings = {ASSET_TAGS = (); }; };
 		8520C84C1BAA100C008471EB /* IndstillingerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8520C84B1BAA100C008471EB /* IndstillingerVC.swift */; settings = {ASSET_TAGS = (); }; };
 		8520C8501BAADA95008471EB /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8520C84F1BAADA95008471EB /* CustomTableView.swift */; settings = {ASSET_TAGS = (); }; };
+		8520C89D1BAB71AC008471EB /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8520C8921BAB71AC008471EB /* JTSImageViewController.m */; settings = {ASSET_TAGS = (); }; };
+		8520C89E1BAB71AC008471EB /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 8520C8941BAB71AC008471EB /* JTSImageInfo.m */; settings = {ASSET_TAGS = (); }; };
+		8520C89F1BAB71AC008471EB /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8520C8961BAB71AC008471EB /* JTSSimpleImageDownloader.m */; settings = {ASSET_TAGS = (); }; };
+		8520C8A01BAB71AC008471EB /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 8520C8981BAB71AC008471EB /* JTSAnimatedGIFUtility.m */; settings = {ASSET_TAGS = (); }; };
+		8520C8A11BAB71AC008471EB /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = 8520C89A1BAB71AC008471EB /* UIImage+JTSImageEffects.m */; settings = {ASSET_TAGS = (); }; };
+		8520C8A21BAB71AC008471EB /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8520C89C1BAB71AC008471EB /* UIApplication+JTSImageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		85225FF11B5A711C001E7BED /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85225FF01B5A711C001E7BED /* AppDelegate.swift */; };
 		85225FF31B5A711C001E7BED /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85225FF21B5A711C001E7BED /* ViewController.swift */; };
 		85225FF61B5A711C001E7BED /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85225FF41B5A711C001E7BED /* Main.storyboard */; };
@@ -118,6 +124,18 @@
 		8520C8491BAA066F008471EB /* ReferatVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReferatVC.swift; sourceTree = "<group>"; };
 		8520C84B1BAA100C008471EB /* IndstillingerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndstillingerVC.swift; sourceTree = "<group>"; };
 		8520C84F1BAADA95008471EB /* CustomTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		8520C8911BAB71AC008471EB /* JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageViewController.h; sourceTree = "<group>"; };
+		8520C8921BAB71AC008471EB /* JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageViewController.m; sourceTree = "<group>"; };
+		8520C8931BAB71AC008471EB /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
+		8520C8941BAB71AC008471EB /* JTSImageInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSImageInfo.m; sourceTree = "<group>"; };
+		8520C8951BAB71AC008471EB /* JTSSimpleImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSSimpleImageDownloader.h; sourceTree = "<group>"; };
+		8520C8961BAB71AC008471EB /* JTSSimpleImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSSimpleImageDownloader.m; sourceTree = "<group>"; };
+		8520C8971BAB71AC008471EB /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
+		8520C8981BAB71AC008471EB /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
+		8520C8991BAB71AC008471EB /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
+		8520C89A1BAB71AC008471EB /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
+		8520C89B1BAB71AC008471EB /* UIApplication+JTSImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+JTSImageViewController.h"; sourceTree = "<group>"; };
+		8520C89C1BAB71AC008471EB /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
 		85225FED1B5A711C001E7BED /* iungo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iungo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		85225FF01B5A711C001E7BED /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		85225FF21B5A711C001E7BED /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +251,18 @@
 		8520C8511BAB5F1F008471EB /* ImageEnlargement */ = {
 			isa = PBXGroup;
 			children = (
+				8520C8911BAB71AC008471EB /* JTSImageViewController.h */,
+				8520C8921BAB71AC008471EB /* JTSImageViewController.m */,
+				8520C8931BAB71AC008471EB /* JTSImageInfo.h */,
+				8520C8941BAB71AC008471EB /* JTSImageInfo.m */,
+				8520C8951BAB71AC008471EB /* JTSSimpleImageDownloader.h */,
+				8520C8961BAB71AC008471EB /* JTSSimpleImageDownloader.m */,
+				8520C8971BAB71AC008471EB /* JTSAnimatedGIFUtility.h */,
+				8520C8981BAB71AC008471EB /* JTSAnimatedGIFUtility.m */,
+				8520C8991BAB71AC008471EB /* UIImage+JTSImageEffects.h */,
+				8520C89A1BAB71AC008471EB /* UIImage+JTSImageEffects.m */,
+				8520C89B1BAB71AC008471EB /* UIApplication+JTSImageViewController.h */,
+				8520C89C1BAB71AC008471EB /* UIApplication+JTSImageViewController.m */,
 			);
 			name = ImageEnlargement;
 			sourceTree = "<group>";
@@ -585,6 +615,7 @@
 				857A62051B5D284500AA3921 /* MeetingCell.swift in Sources */,
 				85C2D2891B6CCA8900513FA4 /* ListCell.swift in Sources */,
 				85225FF31B5A711C001E7BED /* ViewController.swift in Sources */,
+				8520C89D1BAB71AC008471EB /* JTSImageViewController.m in Sources */,
 				85059C1B1B986BA3001F9F15 /* Noti.swift in Sources */,
 				85059C1E1B987277001F9F15 /* NotificationCell.swift in Sources */,
 				85059C261B9873D6001F9F15 /* WallVC.swift in Sources */,
@@ -596,11 +627,16 @@
 				8520C84A1BAA066F008471EB /* ReferatVC.swift in Sources */,
 				85563AAB1BA1D2D5005C926E /* ProfileEditUserCell.swift in Sources */,
 				8520C84C1BAA100C008471EB /* IndstillingerVC.swift in Sources */,
+				8520C8A11BAB71AC008471EB /* UIImage+JTSImageEffects.m in Sources */,
 				85563A8D1B9CD249005C926E /* SwiftyJSON.swift in Sources */,
+				8520C89E1BAB71AC008471EB /* JTSImageInfo.m in Sources */,
+				8520C8A21BAB71AC008471EB /* UIApplication+JTSImageViewController.m in Sources */,
 				854463E31B7A598700C25F6C /* GMNavVC.swift in Sources */,
+				8520C8A01BAB71AC008471EB /* JTSAnimatedGIFUtility.m in Sources */,
 				85DFDDF51B84C3D500A0BE72 /* NetworkGroupCell.swift in Sources */,
 				85225FF11B5A711C001E7BED /* AppDelegate.swift in Sources */,
 				85DFDDFC1B85FB7800A0BE72 /* NetworkTopCell.swift in Sources */,
+				8520C89F1BAB71AC008471EB /* JTSSimpleImageDownloader.m in Sources */,
 				85DFDDF91B85F49C00A0BE72 /* NetworkGroupProfileVC.swift in Sources */,
 				85563AA31BA1B9A6005C926E /* ProfileEditContactCell.swift in Sources */,
 				85C2D2911B6E57C200513FA4 /* Settings.swift in Sources */,

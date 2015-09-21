@@ -138,6 +138,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             ref.childByAppendingPath("device_token").setValue("")
             
             ref.unauth()
+            UIApplication.sharedApplication().applicationIconBadgeNumber = 0
             
         } else {
             print("not logged in")
