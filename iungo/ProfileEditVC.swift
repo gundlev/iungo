@@ -9,107 +9,100 @@
 import UIKit
 import Firebase
 
-class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UITextViewDelegate {
 
     var firstIndexPath = NSIndexPath()
     let userDefaults = NSUserDefaults.standardUserDefaults()
     var user: User?
     var imagePicker = UIImagePickerController()
     var indexpaths = [NSIndexPath]()
+    var changedValues: [String: String] = [:]
     @IBOutlet weak var tableview: CustomTableView!
     
     @IBAction func fortryd(sender: AnyObject) {
         performSegueWithIdentifier("finishEditingProfile", sender: self)
     }
     
+    func textFieldDidEndEditing(textField: UITextField) {
+        
+        switch textField.restorationIdentifier! {
+        case "name":
+            if textField.text! != user?.name {
+                changedValues[textField.restorationIdentifier!] = textField.text!
+                userDefaults.setObject(textField.text!, forKey: "name")
+            }
+        case "title":
+            if textField.text! != user?.userTitle! {
+                changedValues[textField.restorationIdentifier!] = textField.text!
+                userDefaults.setObject(textField.text!, forKey: "title")
+            }
+        case "company":
+            if textField.text! != user?.company {
+                changedValues[textField.restorationIdentifier!] = textField.text!
+                userDefaults.setObject(textField.text!, forKey: "company")
+            }
+        case "phoneNo":
+            if textField.text! != user?.phoneNo! {
+                changedValues[textField.restorationIdentifier!] = textField.text!
+                userDefaults.setObject(textField.text!, forKey: "phoneNo")
+            }
+        case "mobilNo":
+            if textField.text! != user?.mobilNo! {
+                changedValues[textField.restorationIdentifier!] = textField.text!
+                userDefaults.setObject(textField.text!, forKey: "mobilNo")
+            }
+        case "email":
+            if textField.text! != user?.email! {
+                changedValues[textField.restorationIdentifier!] = textField.text!
+                userDefaults.setObject(textField.text!, forKey: "email")
+            }
+        case "website":
+            if textField.text! != user?.website! {
+                changedValues[textField.restorationIdentifier!] = textField.text!
+                userDefaults.setObject(textField.text!, forKey: "website")
+            }
+        default:
+            print("Something is not right with a textField")
+        }
+        
+    }
+    
+    func textViewDidEndEditing(textView: UITextView) {
+        switch textView.restorationIdentifier! {
+        case "address":
+            if textView.text != user?.address! {
+                changedValues[textView.restorationIdentifier!] = textView.text!
+                userDefaults.setObject(textView.text!, forKey: "address")
+            }
+        case "description":
+            if textView.text != user?.userDescription! {
+                changedValues[textView.restorationIdentifier!] = textView.text!
+                userDefaults.setObject(textView.text!, forKey: "description")
+            }
+        default:
+            print("Something is not right with a textView")
+        }
+    }
+    
     @IBAction func gem(sender: AnyObject) {
         
-        print("number of items in the array: " + String(indexpaths.count))
-        var index = 3
-        if indexpaths.count < 4 {
-            index = 2
-        }
-        let url = "https://brilliant-torch-4963.firebaseio.com/users/" + (user?.userId)!
-        print("This is the url: " + url)
-        let ref = Firebase(url: url)
-        var emailHasBeenChanged = false
-        for i in 0...index {
-            print("This is the index: " + String(i))
-            switch i {
-            case 0:
-                let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditUserCell
-                if user?.name != cell.name.text && cell.name.text != "Ikke angivet" {
-                    print("name was changed")
-                    ref.childByAppendingPath("name").setValue(cell.name.text!)
-                    userDefaults.setObject(cell.name.text, forKey: "name")
-                }
-                if user?.company != cell.company.text && cell.company.text != "Ikke angivet" {
-                    print("company was changed")
-                    ref.childByAppendingPath("company").setValue(cell.company.text)
-                    userDefaults.setObject(cell.company.text, forKey: "company")
-                }
-                if user?.userTitle != cell.title.text && cell.title.text != "Ikke angivet" {
-                    print("title was changed")
-                    ref.childByAppendingPath("title").setValue(cell.title.text)
-                    userDefaults.setObject(cell.title.text, forKey: "title")
-                }
-                if user?.profileImage != cell.profileImage.image! {
-                    print("image was changed")
-                    let imageData = UIImageJPEGRepresentation(cell.profileImage.image!, CGFloat(0.1))
-                    let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
-                    ref.childByAppendingPath("picture").setValue(base64String)
-                    userDefaults.setObject(base64String, forKey: "picture")
-//                    print(base64String)
-//                    print("\n\n\n\n\n\n\n")
-                }
-            case 1:
-                let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditContactCell
-                if user?.mobilNo != cell.mobilNo.text! && cell.mobilNo.text != "Ikke angivet" {
-                    print("mobilNo was changed")
-                    ref.childByAppendingPath("mobilNo").setValue(cell.mobilNo.text!)
-                    userDefaults.setObject(cell.mobilNo.text, forKey: "mobilNo")
-                }
-                if user?.phoneNo != cell.phoneNo.text! && cell.phoneNo.text != "Ikke angivet" {
-                    print("phoneNo was changed")
-                    ref.childByAppendingPath("phoneNo").setValue(cell.phoneNo.text!)
-                    userDefaults.setObject(cell.phoneNo.text, forKey: "phoneNo")
-                }
-                if user?.email != cell.email.text! && cell.email.text != "Ikke angivet" {
-                    print("email was changed")
-                    ref.childByAppendingPath("email").setValue(cell.email.text!)
-                    userDefaults.setObject(cell.email.text, forKey: "email")
-                    emailHasBeenChanged = true
-                }
-                if user?.website != cell.website.text! && cell.website.text != "Ikke angivet" {
-                    print("website was changed")
-                    ref.childByAppendingPath("website").setValue(cell.website.text!)
-                    userDefaults.setObject(cell.website.text, forKey: "website")
-                }
-            case 2:
-                let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditAddressCell
-                if user?.address != cell.address.text! && cell.address.text != "Ikke angivet" {
-                    print("address was changed")
-                    ref.childByAppendingPath("address").setValue(cell.address.text!)
-                    userDefaults.setObject(cell.address.text, forKey: "address")
-                }
-            case 3:
-                let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditDescriptionCell
-                if user?.userDescription != cell.userDescription.text! && cell.userDescription.text != "Ikke angivet" {
-                    print("description was changed")
-                    ref.childByAppendingPath("description").setValue(cell.userDescription.text!)
-                    userDefaults.setObject(cell.userDescription.text, forKey: "description")
-                }
-            default:
-                print("Default was called in index: " + String(index))
-            }
-        }
-//        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
-//            
-//            let json = JSON(snapshot.value)
-//            print(json["picture"].stringValue)
-//        })
+        self.view.endEditing(true)
         
-        if emailHasBeenChanged {
+        let url = "https://brilliant-torch-4963.firebaseio.com/users/" + (user?.userId)!
+        let ref = Firebase(url: url)
+        var emailWasChanged = false
+        
+        for (key, value) in changedValues {
+            
+            if key == "title" {
+                emailWasChanged = true
+            }
+            ref.childByAppendingPath(key).setValue(value)
+            
+            
+        }
+        
+        if emailWasChanged {
             let emailAlert = UIAlertController(title: "Du har ændret din offentlige email", message: "Det ændre ikke på dine login oplysninger!", preferredStyle: .Alert)
             emailAlert.addAction(UIAlertAction(title: "Forstået!", style: UIAlertActionStyle.Cancel, handler: nil))
             self.presentViewController(emailAlert, animated: true, completion: {
@@ -118,6 +111,103 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         } else {
             performSegueWithIdentifier("finishEditingProfile", sender: self)
         }
+        
+        // This code was removed because it had a significant error. If the first cell dessapeared from the screen the indexpath that was saved leads to nothing and the application crashes. It has been replaced with working code currently being testet.
+        
+//        print("number of items in the array: " + String(indexpaths.count))
+//        var index = 3
+//        if indexpaths.count < 4 {
+//            index = 2
+//        }
+//        let url = "https://brilliant-torch-4963.firebaseio.com/users/" + (user?.userId)!
+//        print("This is the url: " + url)
+//        let ref = Firebase(url: url)
+//        var emailHasBeenChanged = false
+//        for i in 0...index {
+//            print("This is the index: " + String(i))
+//            switch i {
+//            case 0:
+//                let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditUserCell
+//                if user?.name != cell.name.text && cell.name.text != "Ikke angivet" {
+//                    print("name was changed")
+//                    ref.childByAppendingPath("name").setValue(cell.name.text!)
+//                    userDefaults.setObject(cell.name.text, forKey: "name")
+//                }
+//                if user?.company != cell.company.text && cell.company.text != "Ikke angivet" {
+//                    print("company was changed")
+//                    ref.childByAppendingPath("company").setValue(cell.company.text)
+//                    userDefaults.setObject(cell.company.text, forKey: "company")
+//                }
+//                if user?.userTitle != cell.title.text && cell.title.text != "Ikke angivet" {
+//                    print("title was changed")
+//                    ref.childByAppendingPath("title").setValue(cell.title.text)
+//                    userDefaults.setObject(cell.title.text, forKey: "title")
+//                }
+//                if user?.profileImage != cell.profileImage.image! {
+//                    print("image was changed")
+//                    let imageData = UIImageJPEGRepresentation(cell.profileImage.image!, CGFloat(0.1))
+//                    let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+//                    ref.childByAppendingPath("picture").setValue(base64String)
+//                    userDefaults.setObject(base64String, forKey: "picture")
+////                    print(base64String)
+////                    print("\n\n\n\n\n\n\n")
+//                }
+//            case 1:
+//                let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditContactCell
+//                if user?.mobilNo != cell.mobilNo.text! && cell.mobilNo.text != "Ikke angivet" {
+//                    print("mobilNo was changed")
+//                    ref.childByAppendingPath("mobilNo").setValue(cell.mobilNo.text!)
+//                    userDefaults.setObject(cell.mobilNo.text, forKey: "mobilNo")
+//                }
+//                if user?.phoneNo != cell.phoneNo.text! && cell.phoneNo.text != "Ikke angivet" {
+//                    print("phoneNo was changed")
+//                    ref.childByAppendingPath("phoneNo").setValue(cell.phoneNo.text!)
+//                    userDefaults.setObject(cell.phoneNo.text, forKey: "phoneNo")
+//                }
+//                if user?.email != cell.email.text! && cell.email.text != "Ikke angivet" {
+//                    print("email was changed")
+//                    ref.childByAppendingPath("email").setValue(cell.email.text!)
+//                    userDefaults.setObject(cell.email.text, forKey: "email")
+//                    emailHasBeenChanged = true
+//                }
+//                if user?.website != cell.website.text! && cell.website.text != "Ikke angivet" {
+//                    print("website was changed")
+//                    ref.childByAppendingPath("website").setValue(cell.website.text!)
+//                    userDefaults.setObject(cell.website.text, forKey: "website")
+//                }
+//            case 2:
+//                let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditAddressCell
+//                if user?.address != cell.address.text! && cell.address.text != "Ikke angivet" {
+//                    print("address was changed")
+//                    ref.childByAppendingPath("address").setValue(cell.address.text!)
+//                    userDefaults.setObject(cell.address.text, forKey: "address")
+//                }
+//            case 3:
+//                let cell = tableview.cellForRowAtIndexPath(indexpaths[i]) as! ProfileEditDescriptionCell
+//                if user?.userDescription != cell.userDescription.text! && cell.userDescription.text != "Ikke angivet" {
+//                    print("description was changed")
+//                    ref.childByAppendingPath("description").setValue(cell.userDescription.text!)
+//                    userDefaults.setObject(cell.userDescription.text, forKey: "description")
+//                }
+//            default:
+//                print("Default was called in index: " + String(index))
+//            }
+//        }
+////        ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
+////            
+////            let json = JSON(snapshot.value)
+////            print(json["picture"].stringValue)
+////        })
+//        
+//        if emailHasBeenChanged {
+//            let emailAlert = UIAlertController(title: "Du har ændret din offentlige email", message: "Det ændre ikke på dine login oplysninger!", preferredStyle: .Alert)
+//            emailAlert.addAction(UIAlertAction(title: "Forstået!", style: UIAlertActionStyle.Cancel, handler: nil))
+//            self.presentViewController(emailAlert, animated: true, completion: {
+//                self.goon()
+//            })
+//        } else {
+//            performSegueWithIdentifier("finishEditingProfile", sender: self)
+//        }
         
     }
     
@@ -181,6 +271,7 @@ class ProfileEditVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         //var imageData = UIImagePNGRepresentation(image)
         let imageData = UIImageJPEGRepresentation(image, CGFloat(0.2))
         let base64String = imageData!.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        changedValues["picture"] = base64String
         //print(base64String)
         
         let imageWidth: CGFloat = image.size.width
