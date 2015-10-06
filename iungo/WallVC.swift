@@ -98,7 +98,7 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         })
         
         if userDefaults.boolForKey("MustEditProfile") {
-            let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil 2", message: "Husk at du indtaste det du mangler.", preferredStyle: .Alert)
+            let profileAlert = UIAlertController(title: "Der mangler vigtige oplysninger i din profil", message: "Husk at du indtaste det du mangler.", preferredStyle: .Alert)
             profileAlert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Cancel, handler: nil))
             
             userDefaults.setBool(false, forKey: "MustEditProfile")
