@@ -143,17 +143,17 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let now = NSDate()
         let cal = NSCalendar.currentCalendar()
         let components = cal.components(.Day, fromDate: date, toDate: now, options: [])
-        var numberOfDays:String = components.description
-        numberOfDays.removeRange(Range<String.Index>(start: numberOfDays.startIndex, end: numberOfDays.endIndex.advancedBy((-1))))
+        let numberOfDays:Int = components.day
+//        numberOfDays.removeRange(Range<String.Index>(start: numberOfDays.startIndex, end: numberOfDays.endIndex.advancedBy((-1))))
         print(numberOfDays)
         
         var timeText = ""
-        if numberOfDays == "0" {
-            var dateFormatter = NSDateFormatter()
+        if numberOfDays == 0 {
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "HH:mm"
             timeText = dateFormatter.stringFromDate(date)
         } else {
-            var dateFormatter = NSDateFormatter()
+            let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "d. MMM"
             timeText = dateFormatter.stringFromDate(date)
         }
@@ -167,8 +167,8 @@ class WallVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        print("\nNumber of cells: ")
-        print(notifications.count)
+//        print("\nNumber of cells: ")
+//        print(notifications.count)
         return notifications.count
         
     }

@@ -107,9 +107,10 @@ class NetworkGroupProfileVC: UIViewController, UITableViewDataSource, UITableVie
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toMembers" {
             let toVC = segue.destinationViewController as! ListVC
-            toVC.url = "https://brilliant-torch-4963.firebaseio.com/networkgroups/" + networkGroup!.id + "/members"
+            //toVC.url = "https://brilliant-torch-4963.firebaseio.com/networkgroups/" + networkGroup!.id + "/members"
+            toVC.urls.append("https://brilliant-torch-4963.firebaseio.com/networkgroups/" + networkGroup!.id + "/members")
             toVC.from = "network"
-            toVC.participants = networkGroup!.size
+            //toVC.participants = networkGroup!.size
         } else if segue.identifier == "networkToMeetings" {
             let toVC = segue.destinationViewController as! ViewController
             toVC.fromVC = "network"

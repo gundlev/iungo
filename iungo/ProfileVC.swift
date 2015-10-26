@@ -115,6 +115,8 @@ class ProfileVC: UIViewController, UITableViewDelegate, UITableViewDataSource, M
     
     override func viewDidLoad() {
         
+        print(self.user.userId)
+        
         // Set up NavigationController
         let titleDict = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.titleTextAttributes = titleDict

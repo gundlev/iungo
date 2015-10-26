@@ -229,8 +229,9 @@ class MeetingViewController: UIViewController, UITableViewDelegate, UITableViewD
         if segue.identifier == "meetingList" {
             let toViewController = segue.destinationViewController as! ListVC
             print(meet.participants)
-            toViewController.url = "https://brilliant-torch-4963.firebaseio.com/networkgroups/" + meet.groupId + "/meetings/" + meet.id + "/participants/"
-            toViewController.participants = meet.participants.count
+            //toViewController.url = "https://brilliant-torch-4963.firebaseio.com/networkgroups/" + meet.groupId + "/meetings/" + meet.id + "/participants/"
+            toViewController.urls.append("https://brilliant-torch-4963.firebaseio.com/networkgroups/" + meet.groupId + "/meetings/" + meet.id + "/participants/")
+            //toViewController.participants = meet.participants.count
             toViewController.from = "meeting"
             //toViewController.transitioningDelegate = self.transitionManager
         } else if segue.identifier == "toReferat" {

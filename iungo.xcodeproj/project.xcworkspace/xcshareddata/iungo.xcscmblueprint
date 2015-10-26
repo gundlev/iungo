@@ -1,18 +1,18 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3D3DB1A96556C527108EBA9458422E59055DEB55+++3A832D5",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "3D3DB1A96556C527108EBA9458422E59055DEB55+++92FB111",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++15008B5" : 0,
-    "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++9D2CD0C" : 0,
-    "3D3DB1A96556C527108EBA9458422E59055DEB55+++3A832D5" : 0
+    "3D3DB1A96556C527108EBA9458422E59055DEB55+++92FB111" : 0,
+    "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++380D41F" : 0,
+    "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++CCD6FFC" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "52DBC4B3-12E9-4A41-91F3-E1552C6860E1",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++15008B5" : "..\/..\/iungo",
-    "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++9D2CD0C" : "..\/..\/iungo",
-    "3D3DB1A96556C527108EBA9458422E59055DEB55+++3A832D5" : "iungo\/"
+    "3D3DB1A96556C527108EBA9458422E59055DEB55+++92FB111" : "iungo\/",
+    "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++380D41F" : "..\/..\/iungo",
+    "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++CCD6FFC" : "..\/..\/iungo"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "iungo",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -21,17 +21,17 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gundlev\/iungo.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3D3DB1A96556C527108EBA9458422E59055DEB55+++3A832D5"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3D3DB1A96556C527108EBA9458422E59055DEB55+++92FB111"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gundlev\/iungo.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++15008B5"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++380D41F"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/gundlev\/iungo.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++9D2CD0C"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "94E0E7E2D0BCB98B2958B4792D72AB4E6992FB2C+++CCD6FFC"
     }
   ]
 }
